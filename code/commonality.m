@@ -16,7 +16,7 @@ function [commonalityMatrix] = commonality(cfg)
 % Optional parameters:
 % cfg.doPerm      - Whether or not to run permutations (0 | 1; default,0)
 % cfg.numPerm     - Number of permuations (default,1)
-% cfg.runInSerial - 
+% cfg.runParfor   - Run usuing parpool 
 % cfg.normValue   - Whether to renormalise Variance explained relative to a variable of interest (to normalization value)
 % 
 
