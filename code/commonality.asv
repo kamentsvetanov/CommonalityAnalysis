@@ -1,53 +1,65 @@
-function [commonalityMatrix] = kat_stats_commonality_perm(cfg)
+function [commonalityMatrix] = commonality(cfg)
 % Function performing Commonality Analysis, which partitions R2 explained
 % by all predictors in multiple linear regression into variance unique to
 % each predictor and variance shared between each combination of predictors
 % See Nimon et al 2013 OrgResMethods and Nimon et al 2008 BehavResMethods
 %
-% Canibalized from R functions 'aps' and 'commonality', part of calc.yhat package 
+% Based on R functions 'aps' and 'commonality', part of calc.yhat package
+% https://cran.r-project.org/web/packages/yhat/yhat.pdf
 % 
-% Three types of inputs:
-% 1 - Linear Model such as an output from fitlm (1 input needed)
-% 2 - Data Matrix with formula string, input 1 and 2, respectively 
-% 3 - Data matrix with names of Dependent and Independnt variables (inputs 2 and 3, respectively) 
+% Usage:
+% [CA] = commonality_perm(cfg)
+% 
+% Parameters (fields in cfg):
+% cfg.mlr        - Linear Model output from fitlm
+%
+% Optional parameters:
+% cfg.doPerm      - Whether or not to run permutations (0 | 1; default,0)
+% cfg.numPerm     - Number of permuations (default,1)
+% cfg.runInSerial - 
+% cfg.normValue   - Whether to renormalise Variance explained relative to a variable of interest (to normalization value)
+% 
 
-try mlr = cfg.mlr; catch mlr = cfg; end
-try 
-    try 
-        mlr = fitlm(cfg.dat,cfg.model);
-    catch
-        mlr = fitlm(cfg.dat,'ResponseVar',cfg.nameDV,'PredictorVars',cfg.nameIV);
-    end
-end
+% Check whether cfg is structure or a linear model
+strClass = class(cfg);
+switch strClass
+    case 'struct'
+        mlr = cfg.mlr;
+    case 'LinearModel'
+        mlr = cfg;
+    otherwise
+        
 
-try runInSerial = cfg.runInSerial; catch runInSerial = 1;      end % Run using parpool or not
-try numPerm = cfg.numPerm;         catch numPerm = 1;          end % Number of permtuations
-try doPerm = cfg.doPerm;           catch doPerm = 0;           end % Whether to Run permuations
-try normValue = cfg.normValue;     catch normValue = 1;        end % Whether to renormalise Variance explained relative to a variable of interest (to normaliation value)
+
+try parforArg   = cfg.runParfor;    catch parforArg      = 0; end % Run using parpool or not [0 | inf]
+try numPerm     = cfg.numPerm;      catch numPerm        = 1; end % Number of permtuations 
+try doPerm      = cfg.doPerm;       catch doPerm         = 0; end % Whether to Run permuations [0 | 1]
+try normValue   = cfg.normValue;    catch normValue      = 1; end % Whether to renormalise Variance explained relative to a variable of interest (to normalization value)
  
-
-if runInSerial
-    parforArg = 0;
-else
+% Set parforArg to inf if runParfor was 1
+if parforArg == 1
     parforArg = Inf;
 end
 
-if ~doPerm 
-    numPerm = 1;
-    parforArg = 0;
+% For standard commonality (i.e. no permuations), reset numPerm to 1 and
+% parpool argument
+if doPerm==0
+    numPerm     = 1;
+    parforArg   = 0;
 end
 
-    
-dv = mlr.ResponseName;
-ivlist = mlr.PredictorNames;
-dataMatrix = mlr.Variables;    
-Ns    = size(dataMatrix,1);
-k     = length(ivlist); % Determine the number of independent variables (n).
-numcc = 2^k - 1; % Determine the number of commonality coefficients (2^n-1).
-ilist = find(contains(dataMatrix.Properties.VariableNames,ivlist));
-ilist = mlr.Variables.Properties.VariableNames(ilist);
 
-dataMatrix = dataMatrix(:,[dv ilist]);
+% Extract information from mlr
+dv          = mlr.ResponseName;     % Name of dependent variable
+ivlist      = mlr.PredictorNames;   % Predictor names
+dataMatrix  = mlr.Variables;        % Data matrix
+Ns          = size(dataMatrix,1);   % Number of samples
+k           = length(ivlist);       % Determine the number of independent variables (n).
+numcc       = 2^k - 1;              % Determine the number of commonality coefficients (2^n-1).
+ilist       = find(contains(dataMatrix.Properties.VariableNames,ivlist));
+ilist       = mlr.Variables.Properties.VariableNames(ilist);
+
+dataMatrix  = dataMatrix(:,[dv ilist]);
 
 % ----------------------------
 % Check for NaN in dataMatrix
@@ -56,14 +68,15 @@ if any(any(ismissing(dataMatrix)))
     warning('NaNs in the data.');
 end
 
-
-ivID = table([2.^(0:(k - 1))]'); % Generate an ID for each independent variable to 2^(n-1).
+% --------------------------------------------------------
+% Generate an ID for each independent variable to 2^(n-1).
+% --------------------------------------------------------
+ivID = table([2.^(0:(k - 1))]'); 
 ivID.Properties.RowNames = ivlist;
 nvar = numel(ivID);
 if (nvar < 2)
     error('Commonality analysis not conducted. Insufficient number of regressors specified.');
 end
-
 
 % -------------------------------------------------------------------------
 % Generate a bitmap matrix containing the bit representation of each 
@@ -111,7 +124,7 @@ for i = 1:numcc
     Rownames{i} = strjoin(rownames,',');
 end
 
- % -----------------------
+% -----------------------
 % Create Commonality List
 % Use the bitmap matrix to generate the list of R2 values needed for each
 % commonality coefficient.
@@ -128,28 +141,26 @@ for i = 1:numcc
         bit = effectBitMap{j, i};
         if bit == 1
             alist = ilist;
-            blist = kat_stats_commonality_genlist(ilist, -ivID{j,1});
+            blist = commonality_genlist(ilist, -ivID{j,1});
             ilist = [alist blist];
         else
-            ilist = kat_stats_commonality_genlist(ilist, ivID{j,1});
+            ilist = commonality_genlist(ilist, ivID{j,1});
         end
     end
     ilist = ilist .* -1;
     commonalityList{i} = ilist;
 end
 
-
-
-%
 % Predefine order for outter permutations
 % % randOrder = palm_quickperms(Ns,[],numPerm);
 
 coeffPerm = nan(numcc,numPerm);
 APSr2     = nan(numcc,numPerm);
 
-parfor (iPerm = 1:numPerm, parforArg)
+parfor (iPerm = 1:numPerm, parforArg) 
 % for iPerm = 1:numPerm % Permutation of subject labels. First iteration uses the correct labels
-
+    
+    % First iteration uses the correct labels
     if iPerm == 1
         tempOrder = 1:Ns;
     else
@@ -182,9 +193,6 @@ parfor (iPerm = 1:numPerm, parforArg)
     % -----------------------------------
     % Now start with Commonality Analysis
     % -----------------------------------
-%     commonalityMatrix = array2table(nan(numcc, 3),'RowNames',cellstr(Rownames),'VariableNames',{'R2','Coefficient','PercentTotal'});
-%     commonalityMatrix(:,'R2') = APSMatrix(orderApsBitMap,'R2');
-%     R2 = APSMatrix{orderApsBitMap,'R2'};
     R2 = APSMatrix(orderApsBitMap);
     commonalityCoeff = nan(numcc,1);
     % -------------------------------------------------------------------------
@@ -207,17 +215,11 @@ parfor (iPerm = 1:numPerm, parforArg)
 
             end
         end
-        
-%         commonalityMatrix{i, 'Coefficient'} = ccsum;
         commonalityCoeff(i) = ccsum;
     end
-%     commonalityMatrix(:,'R2') = [];
-%     commonalityMatrix = commonalityMatrix(apsBitMap, :);
-%     commonalityMatrix{:,'PercentTotal'} = commonalityMatrix{:,'Coefficient'}./APSMatrix{numcc,2};
-%     
+ 
     coeffPerm(:,iPerm) = commonalityCoeff; %commonalityMatrix{:,'Coefficient'};
     APSr2(:,iPerm) = R2;
-%     dataTemp = [];
 end
 
 varnames = {'Coefficient','PercentTotal','tR2'};
@@ -266,14 +268,7 @@ commonalityMatrix.APSr2(end) = nan;
 % Renormalise Variance explained relative to a variable of interest (to
 % normaliation value)
 
-commonalityMatrix.R2Normalised = commonalityMatrix.Coefficient./normValue;
-
-%  Total variance explaine by Age Unique and Shared
- nameNormValue = 'Age';
- idx=contains(calist,nameNormValue);
- commonalityMatrix{end+1,:} = sum(commonalityMatrix{idx,:});
- commonalityMatrix.Properties.RowNames{end} = 'AgeUS';
- 
+commonalityMatrix.R2Normalised = commonalityMatrix.Coefficient./normValue; 
 
 % ---------------------------------------------
 % Assign a direction T-stats of common effects
@@ -294,7 +289,7 @@ for ivar = 1:nvar
 end
 
 
-function [newlist] = kat_stats_commonality_genlist(ivlist,value)
+function [newlist] = commonality_genlist(ivlist,value)
 
 numlist = length(ivlist);
 newlist = ivlist;
