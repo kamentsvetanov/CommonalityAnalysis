@@ -1,4 +1,4 @@
-function [commonalityMatrix] = commonality(cfg)
+function [commonalityMatrix] = kat_stats_commonality(cfg)
 % Function performing Commonality Analysis, which partitions R2 explained
 % by all predictors in multiple linear regression into variance unique to
 % each predictor and variance shared between each combination of predictors
@@ -19,6 +19,10 @@ function [commonalityMatrix] = commonality(cfg)
 % cfg.runParfor   - Run usuing parpool 
 % cfg.normValue   - Whether to renormalise Variance explained relative to a variable of interest (to normalization value)
 % 
+% --------------------------------------------------------------
+% Required packages (https://github.com/kamentsvetanov/external)
+% --------------------------------------------------------------
+% kat_import('palm'); https://github.com/andersonwinkler/PALM
 
 % Check whether cfg is structure or a linear model
 strClass = class(cfg);

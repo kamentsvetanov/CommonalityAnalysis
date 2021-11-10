@@ -1,4 +1,5 @@
-% Code showing the use of commonality function.
+% Code showing the use of commonality function for a single model. To run
+% voxel-level commonality analysis refer to demo_vba.m
 
 % Load data from the Holzinger and Swineford (1939) study, available in the MBESS R package
 dat = readtable('/home/kt03/Projects/public-code/CommonalityAnalysis/data/hsdata.csv');
@@ -8,6 +9,7 @@ nameIV  = {'general'  'sentence' 'wordc'    'wordm'};
 DAT     = dat(:,{nameDV nameIV{:}});
 DAT     = normalize(DAT);
 
+% Specify Linear Model using Wilkinson notation
 model = 'paragrap ~ general + sentence + wordc + wordm';
 
 % Run MLR using Formula where the terms are in Wilkinson notation
@@ -26,27 +28,3 @@ cfg.runParfor   = 0;
 tic
 CA1 = commonality(cfg);
 toc
-
-%% 
-% 
-% tbl = mlr.Variables;
-% modelR = 'Cattellcont ~ 1 + G + E + Age + M + H';
-% mlrR =  fitlm(tbl,modelR);
-% 
-% 
-% cfg     = [];
-% cfg.mlr = mlrR;
-% % cfg.dat = dat;
-% % cfg.model = model;
-% % cfg.nameDV = nameDV;
-% cfg.nameIV = nameIV;
-% cfg.doPerm = 0;
-% cfg.numPerm = 100;
-% tic
-% CAr = kat_stats_commonality_perm(cfg);
-% toc
-% idxAgeU = ismember(CAr.Properties.RowNames,'Age');
-% idxAgeU = ismember(CAr.Properties.RowNames,'Age');
-% normValue = CAr.Coefficient(idxAgeU);
-% 
-% 
