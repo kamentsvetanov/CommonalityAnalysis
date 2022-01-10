@@ -17,7 +17,7 @@ mlr = fitlm(DAT,model);
 
 
 % Run Commonality Analysis using fitlm output
-CA = commonality(mlr);
+CA = ca_stats_commonality(mlr);
 
 % Run Commonality Analysis using Permutations
 cfg             = [];
@@ -26,5 +26,5 @@ cfg.doPerm      = 1;
 cfg.numPerm     = 100;
 cfg.runParfor   = 0;
 tic
-CA1 = commonality(cfg);
+CA1 = ca_stats_commonality(cfg);
 toc

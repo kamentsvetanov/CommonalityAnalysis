@@ -23,6 +23,8 @@
 % Depenendencies:
 % kat_import('spm12');
 % kat_import('matlabcentral'); % Needed for 'rdir' function
+% kat_import('tfce');
+
 
 rootdir = '/home/kt03/Projects/public-code/CommonalityAnalysis/data/rsfa/';
 load(fullfile(rootdir,'subject_info.mat'));
@@ -39,6 +41,16 @@ cfg.f_mask          = fullfile(rootdir,'mask.nii');
 cfg.numPerm         = 4;
 cfg.doCommonality   = 1;
 cfg = ca_vba_glm_fitlm_tfce(T,cfg);
+
+% ---------------------------
+% Perform TFCE thresholding
+% ---------------------------
+cfg.tfce.path2data  = cfg.outDir;
+cfg.tfce.typeStats  = 'tval'; 
+cfg.tfce.Ns         = size(cfg.tbl,1);
+cfg.tfce.Np         = size(cfg.tbl,2)-1;
+cfg.tfce.th         = 1.5;
+ca_vba_tfce_threshold(cfg);
 
 % Clean up some directories
 fn = dir(cfg.outDir);fn = fn([fn.isdir]);fn = {fn.name}';

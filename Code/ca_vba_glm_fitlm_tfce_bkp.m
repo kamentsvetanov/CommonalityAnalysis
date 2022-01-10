@@ -128,13 +128,8 @@ mlr_temp     = fitlm(tbl,Model);
 nameCoef     = mlr_temp.CoefficientNames;
 numCoef      = numel(nameCoef);
 
-   
-  
-
 % Clean up workspace to imporve parpool performance
 clear T X X3D Xvec Y3D Yvec; 
-
-
 
 %% make output folders for each  permutation
 
@@ -143,129 +138,147 @@ strModel = regexprep(strModel,'(\<[a-z])','${upper($1)}');
 strModel = regexprep(strModel,{'+',' '},'');
 strModel = regexprep(strModel,'~','_iv');
 strModel = regexprep(strModel,'*','X');
-strModel = ['dv' strModel '_nS' num2str(numSub) '_nPerm' num2str(numPerm)];
+strModel = ['dv' strModel '_n' num2str(numSub) '_nPerm' num2str(numPerm)];
 
-outDir = fullfile(rootDir,strModel);
-mkdir(outDir);
-
- % make folder for tValue
-for i=1:numCoef
-    nameOutput = nameCoef{i};
-    tValfldDir = fullfile(outDir,['tVal_',nameOutput]); 
-    mkdir(tValfldDir);
-    bValfldDir = fullfile(outDir,['bVal_',nameOutput]); 
-    mkdir(bValfldDir);
- end
 % ----------------------------------------------
-% Predefine Commonality Analysis output maps
+% Predefine Commonality Analysis or GLM output maps
 % ----------------------------------------------
 if doCommonality
+    outDir      = fullfile(rootDir,['ca_' strModel]);
     cfg.mlr     = mlr_temp;
     cfg.doPerm  = 0;
     CA_temp     = ca_stats_commonality(cfg);
     nameVarCA   = CA_temp.Properties.RowNames;
     nameVarCA   = regexprep(nameVarCA,',','');
-    numVarCA    = numel(nameVarCA); 
+    numVarCA    = numel(nameVarCA);    
+    numCoef     = nameVarCA;
+else
+    outDir = fullfile(rootDir,['glm_' strModel]);
 end
 
-randOrder   = palm_quickperms(numSub,[],numPerm);
+% -----------------
+% Make folders
+% -----------------
+for i=1:numCoef
+    nameOutput = nameCoef{i};
+    mkdir(fullfile(outDir,['tVal_',nameOutput]));
+    mkdir(fullfile(outDir,['bVal_',nameOutput]));
+end
 
+%% ------------------------------------------------------------------------
+% Permutations
+randOrder   = palm_quickperms(numSub,[],numPerm);
 for iperm = 1:numPerm
     iperm
     
-    tempOrder  = randOrder(:,iperm);
-    datY         = Y;
-    datY(:,:,1)  = datY(tempOrder,:,1); % Shuffle dependent variable
-    coef         = zeros(numVox,numCoef);
-    pvals        = ones(numVox,numCoef);
-    tvals        = zeros(numVox,numCoef);
-    Rvals        = zeros(numVox,1);
-    if doCommonality
-        tvalCA     = zeros(numVox,numVarCA);
-        rvalCA     = zeros(numVox,numVarCA);
-    end
+    tempOrder   = randOrder(:,iperm);
+    datY        = Y;
+    datY(:,:,1) = datY(tempOrder,:,1); % Shuffle dependent variable
     
-    parfor iVox = 1:numVox
-        Yvox = squeeze(datY(:,iVox,:));
-        Yvox(:,1) = Yvox(tempOrder,:);
-%         if ~isnan(YarrayZ(1,iVox)) && ~YarrayZ(1,iVox)==0 & (~(sum(table2array(Xvox))==0) | ~doPredMaps) 
-            tbl_temp = tbl;    
-            tbl_temp{:,VarNamesMaps{:}} = Yvox;
-            
-            mlr             = [];  
-            mlr             = fitlm(tbl_temp,Model,'RobustOpts',doRobust);
-            coef(iVox,:)    = mlr.Coefficients.Estimate;
-            pvals(iVox,:)   = mlr.Coefficients.pValue;
-            tvals(iVox,:)   = mlr.Coefficients.tStat;
-            Rvals(iVox,:)   = mlr.Rsquared.Adjusted;
-
-            if doCommonality
-                cfgtemp     = cfg; cfgtemp.mlr = mlr;
-                CA = ca_stats_commonality(cfgtemp);
-                tvalCA(iVox,:) = CA{:,'tR2'};
-                rvalCA(iVox,:) = CA{:,'Coefficient'};
-
-            end
-    %         disp(['Cool, the ' num2str(iVox) 'th voxel was completed!']);
-%          end
-    end
-    % --------------------------------------------------------
-    % Write results (coeff, pvals and residuals) to nii images
-    % --------------------------------------------------------
-    % For every permutation Write results (tvalCA) to nii images in separate folder,
-    % so for 1000 permutations there should be 1000 folders
-    % (perm_00001,perm_00002 etc), each one containing the tvalCA maps for
-    % every effect (common and shared) 
-    Vtemp = V(1);
-    Vtemp.pinfo(1)=1;
-    tcoefMap = zeros(Vtemp.dim);
-    bcoefMap = zeros(Vtemp.dim);
-
-    for i=1:numCoef
-        nameOutput = nameCoef{i};
-
-        % make folder for tValue
-        rootDir = outDir;
-
-        tValfldDir = fullfile(rootDir,['tVal_',nameOutput]); 
-%         mkdir(tValfldDir);
-
-        tcoefMap(idxMask) = tvals(:,i);  
-        Vtemp.fname = fullfile(tValfldDir,sprintf('glmT_tVal_%s_perm_%.5d.nii',nameOutput,iperm));
-        spm_write_vol(Vtemp,tcoefMap);
-
-        % make folder for rValue
-        bValfldDir = fullfile(rootDir,['bVal_',nameOutput]); 
-%         mkdir(bValfldDir);
-        bcoefMap(idxMask) = coef(:,i);  
-        Vtemp.fname = fullfile(bValfldDir,sprintf('glmT_bVal_%s_perm_%.5d.nii',nameOutput,iperm));
-        spm_write_vol(Vtemp,bcoefMap);
-    end 
-
     if doCommonality
-        CAVtemp = V(1);
-        CAVtemp.pinfo(1)=1;
-        CAtcoefMap = zeros(CAVtemp.dim);
-        CArcoefMap = zeros(CAVtemp.dim);
-        for i=1:numVarCA 
-            nameOutput = nameVarCA{i};
+        tvalCA  = zeros(numVox,numVarCA);
+        rvalCA  = zeros(numVox,numVarCA);
+        
+        % Loop through all voxels
+        parfor iVox = 1:numVox
+            Yvox = squeeze(datY(:,iVox,:));
+            Yvox(:,1) = Yvox(tempOrder,:);
 
-            % make folder for tValue
-            rootDir = outDir;
-            tValfldDir = fullfile(rootDir,['tValCA_',nameOutput]); 
-            mkdir(tValfldDir);
+            % Ensure all subjects have non-nan values
+            if sum(isnan(Yvox))==0
+                tbl_temp = tbl;    
+                tbl_temp{:,VarNamesMaps{:}} = Yvox;
+
+                mlr             = [];  
+                mlr             = fitlm(tbl_temp,Model,'RobustOpts',doRobust);
+                cfgtemp         = cfg; 
+                cfgtemp.mlr     = mlr;
+                CA              = ca_stats_commonality(cfgtemp);
+                tvalCA(iVox,:)  = CA{:,'tR2'};
+                rvalCA(iVox,:)  = CA{:,'Coefficient'};
+            end
+            
+        end
+        
+        % --------------------------------------------------------
+        % Write results (coeff, pvals and residuals) to nii images
+        % --------------------------------------------------------
+        % For every permutation Write results (tvalCA) to nii images in separate folder,
+        % so for 1000 permutations there should be 1000 folders
+        % (perm_00001,perm_00002 etc), each one containing the tvalCA maps for
+        % every effect (common and shared) 
+        CAVtemp         = V(1);
+        CAVtemp.pinfo(1)=1;
+        
+        for i=1:numVarCA 
+            CAtcoefMap = zeros(CAVtemp.dim);
+            CArcoefMap = zeros(CAVtemp.dim);
+            nameOutput = nameVarCA{i};
+            
+            % Save t-stats
+            tValfldDir          = fullfile(outDir,['tVal_',nameOutput]); 
             CAtcoefMap(idxMask) = tvalCA(:,i);  
-            CAVtemp.fname = fullfile(tValfldDir,sprintf('glmT_tValCA_%s_perm_%.5d.nii',nameOutput,iperm));
+            CAVtemp.fname       = fullfile(tValfldDir,sprintf('glmT_tVal_%s_perm_%.5d.nii',nameOutput,iperm));
             spm_write_vol(CAVtemp,CAtcoefMap);
 
-            % make folder for rValue
-            rValfldDir = fullfile(rootDir,['bValCA_',nameOutput]); 
-            mkdir(rValfldDir);
+            % Save r-values
+            rValfldDir          = fullfile(outDir,['bVal_',nameOutput]); 
             CArcoefMap(idxMask) = rvalCA(:,i);  
-            CAVtemp.fname = fullfile(rValfldDir,sprintf('glmT_rValCA_%s_perm_%.5d.nii',nameOutput,iperm));
+            CAVtemp.fname       = fullfile(rValfldDir,sprintf('glmT_rVal_%s_perm_%.5d.nii',nameOutput,iperm));
             spm_write_vol(CAVtemp,CArcoefMap);
         end 
-    end     
+        
+    else % Perform and save standard GLM analysis 
+        coef    = zeros(numVox,numCoef);
+        pvals   = ones(numVox,numCoef);
+        tvals   = zeros(numVox,numCoef);
+        Rvals   = zeros(numVox,1);
+        
+        parfor iVox = 1:numVox
+            Yvox = squeeze(datY(:,iVox,:));
+            Yvox(:,1) = Yvox(tempOrder,:);
+
+            % Ensure all subjects have non-nan values
+            if sum(isnan(Yvox))==0
+                tbl_temp = tbl;    
+                tbl_temp{:,VarNamesMaps{:}} = Yvox;
+
+                mlr             = [];  
+                mlr             = fitlm(tbl_temp,Model,'RobustOpts',doRobust);
+                coef(iVox,:)    = mlr.Coefficients.Estimate;
+                pvals(iVox,:)   = mlr.Coefficients.pValue;
+                tvals(iVox,:)   = mlr.Coefficients.tStat;
+                Rvals(iVox,:)   = mlr.Coefficients.Adjusted;
+            end
+        end
+        
+        % --------------------------------------------------------
+        % Write results (coeff, pvals and residuals) to nii images
+        % --------------------------------------------------------
+        % For every permutation Write results (tvalCA) to nii images in separate folder,
+        % so for 1000 permutations there should be 1000 folders
+        % (perm_00001,perm_00002 etc), each one containing the tvalCA maps for
+        % every effect (common and shared) 
+        Vtemp = V(1);
+        Vtemp.pinfo(1)=1;
+        for i=1:numCoef
+            nameOutput  = nameCoef{i};
+            tcoefMap    = zeros(Vtemp.dim);
+            bcoefMap    = zeros(Vtemp.dim);
+
+            % Save t-stats
+            tValfldDir          = fullfile(outDir,['tVal_',nameOutput]); 
+            tcoefMap(idxMask)   = tvals(:,i);  
+            Vtemp.fname         = fullfile(tValfldDir,sprintf('glmT_tVal_%s_perm_%.5d.nii',nameOutput,iperm));
+            spm_write_vol(Vtemp,tcoefMap);
+
+            % Save beta coefficients (r-values if data was z-scoredd)
+            bValfldDir          = fullfile(outDir,['bVal_',nameOutput]); 
+            bcoefMap(idxMask)   = coef(:,i);  
+            Vtemp.fname         = fullfile(bValfldDir,sprintf('glmT_bVal_%s_perm_%.5d.nii',nameOutput,iperm));
+            spm_write_vol(Vtemp,bcoefMap);
+        end 
+    end
 end
    
 % Assemble and save output structure

@@ -28,6 +28,7 @@ try path2data   = tfce.path2data;  catch error('Specify path to permutations.');
 try typeStats   = tfce.typeStats;  catch error('Specify folder prefix, based on statistic type. [tVal | rVal | bVal]'); end % This is the pattern used to select directories, e.g. bVal, tVal glmTCA
 
 nameCoefficients    = dir(fullfile(path2data,[typeStats '*']));
+nameCoefficients    = nameCoefficients([nameCoefficients.isdir]);
 nameCoefficients    = {nameCoefficients.name}';
 numCoeff            = numel(nameCoefficients);
 df                  = Ns - Np; % Degrees of freedom
@@ -38,7 +39,7 @@ df                  = Ns - Np; % Degrees of freedom
 for iCoeff = 1:numel(nameCoefficients)
     
     namecoeff   = nameCoefficients{iCoeff};
-    fname       = rdir(fullfile(path2data,namecoeff,sprintf('glmT_%s*.nii',typeStats))); fname = {fname.name}';
+    fname       = rdir(fullfile(path2data,namecoeff,'results_null_*.nii')); fname = {fname.name}';
     nperm       = size(fname,1);
 
     % Get t-stats for observed data (1st image)
@@ -80,10 +81,7 @@ for iCoeff = 1:numel(nameCoefficients)
     treal(corrected>0.05) = 0;
 
     % Write output image
-    fout = spm_file(fname{1},'suffix',sprintf('_tfce%d',th*100));
-    fout = regexprep(fout,'perm_00001_','');
-    [d,f,e]=fileparts(fout);
-    fout = fullfile(fileparts(d),[f e]);
+    fout = fullfile(cfg.outDir,sprintf('%s_tfce%d.nii',namecoeff,th*100));
     V.fname = fout;
     spm_write_vol(V,treal);
 end
