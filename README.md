@@ -7,7 +7,7 @@ This voxel-wise GLM-like approach uses MATLAB's fitlm to save nii image of coeff
 
 We extended this voxel-wise approach to commonality analysis in [Wu et al 2022](https://www.sciencedirect.com/science/article/pii/S0197458022002044).
 
-![image](./Figures/Figure_1.png)
+![image](./figures/Figure_1.png)
 
 
 ### Dependencies
