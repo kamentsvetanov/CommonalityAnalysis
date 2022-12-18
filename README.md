@@ -12,7 +12,7 @@ We extended this voxel-wise approach to commonality analysis in [Wu et al 2022](
 
 ### Dependencies
 - [SPM12](https://www.fil.ion.ucl.ac.uk/spm/software/spm12/) 
-- [PALM](https://github.com/andersonwinkler/PALM).
+- [PALM](https://github.com/andersonwinkler/PALM)
 
 Dependencies can be accessed at my [external](https://github.com/kamentsvetanov/CommonalityAnalysis/tree/main/code/external) repo from the subfolders 'spm12' and 'palm'.
 
