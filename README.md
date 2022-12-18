@@ -11,7 +11,8 @@ We extended this voxel-wise approach to commonality analysis in [Wu et al 2022](
 
 
 ### Dependencies
-[SPM12](https://www.fil.ion.ucl.ac.uk/spm/software/spm12/), [MatlabTFCE](https://github.com/markallenthornton/MatlabTFCE) and [rdir](https://uk.mathworks.com/matlabcentral/fileexchange/47125-rdir-m) (from Matlabcentral).
+[SPM12](https://www.fil.ion.ucl.ac.uk/spm/software/spm12/) and [PALM](https://github.com/andersonwinkler/PALM).
 
-Dependencies can be downloaded at https://github.com/kamentsvetanov/external/mat from the subfolders 'spm12', 'tfce', 'matlabcentral'
+Dependencies can be downloaded at https://github.com/kamentsvetanov/external/mat from the subfolders 'spm12' and 'palm'.
 
+Other packages and functions integrated here are [rdir](https://uk.mathworks.com/matlabcentral/fileexchange/47125-rdir-m) and [MatlabTFCE](https://github.com/markallenthornton/MatlabTFCE). These are in folder [.../code/external/](https://github.com/kamentsvetanov/CommonalityAnalysis/tree/main/code/external). 

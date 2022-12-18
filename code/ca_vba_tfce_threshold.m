@@ -40,7 +40,7 @@ df                  = Ns - Np; % Degrees of freedom
 for iCoeff = 1:numel(nameCoefficients)
     
     namecoeff   = nameCoefficients{iCoeff};
-    fname       = rdir(fullfile(path2data,namecoeff,'results_null_*.nii')); fname = {fname.name}';
+    fname       = ca_rdir(fullfile(path2data,namecoeff,'results_null_*.nii')); fname = {fname.name}';
     nperm       = size(fname,1);
 
     % Get t-stats for observed data (1st image)

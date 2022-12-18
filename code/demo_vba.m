@@ -22,14 +22,14 @@
 %
 % Depenendencies (download from https://github.com/kamentsvetanov/external):
 % SPM 12 
-% functions from matlabcentral (e.g. rdir)
-% MatlabTFCE toolbox (https://github.com/markallenthornton/MatlabTFCE)
+% palm_quickperms
 %
 % These dependencies are at https://github.com/kamentsvetanov/external
 % .../mat/spm12
-% .../mat/matlabcentral
-% .../mat/tfce
+% .../mat/palm
 % and need to be loaded in Matlab's path
+% 
+
 
 clear 
 rootdir = '/home/kt03/Projects/public-code/CommonalityAnalysis/data/rsfa/';
