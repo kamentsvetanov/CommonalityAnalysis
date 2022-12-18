@@ -1,4 +1,6 @@
- function [commonalityMatrix] = kat_stats_commonality(cfg)
+ function [commonalityMatrix] = ca_stats_commonality_fast(cfg)
+% Variation of ca_stats_commonality where estimation of R2 for each
+% submodel is computed by hand, not using fitlm.
 % Function performing Commonality Analysis, which partitions R2 explained
 % by all predictors in multiple linear regression into variance unique to
 % each predictor and variance shared between each combination of predictors
@@ -18,7 +20,12 @@
 % cfg.numPerm     - Number of permuations (default,1)
 % cfg.runParfor   - Run usuing parpool 
 % cfg.normValue   - Whether to renormalise Variance explained relative to a variable of interest (to normalization value)
-% 
+% cfg.doRobust    - whether or not to do robust regression
+%
+% Script edit log (kat)
+% -----------------------------
+% 21/04/2022 - omit reporting covariates of no interest by prefixing with 'c_'
+%
 % --------------------------------------------------------------
 % Required packages (https://github.com/kamentsvetanov/external)
 % --------------------------------------------------------------
@@ -35,11 +42,12 @@ switch strClass
         error('Input should be structure or Linear Model');
 end
 
-try parforArg   = cfg.runParfor;    catch parforArg      = 0; end % Run using parpool or not [0 | inf]
-try numPerm     = cfg.numPerm;      catch numPerm        = 1; end % Number of permtuations 
-try doPerm      = cfg.doPerm;       catch doPerm         = 0; end % Whether to Run permuations [0 | 1]
-try normValue   = cfg.normValue;    catch normValue      = 1; end % Whether to renormalise Variance explained relative to a variable of interest (to normalization value)
- 
+try parforArg   = cfg.runParfor;    catch parforArg     = 0; end % Run using parpool or not [0 | inf]
+try numPerm     = cfg.numPerm;      catch numPerm       = 1; end % Number of permtuations 
+try doPerm      = cfg.doPerm;       catch doPerm        = 0; end % Whether to Run permuations [0 | 1]
+try normValue   = cfg.normValue;    catch normValue     = 1; end % Whether to renormalise Variance explained relative to a variable of interest (to normalization value)
+try doRobust    = cfg.doRobust;     catch doRobust      = 0; end % Whether or not to perform robust regression 
+
 % Set parforArg to inf if runParfor was 1
 if parforArg == 1
     parforArg = Inf;
@@ -117,14 +125,17 @@ Rownames = strings(size(PredBitMap,2),1);
 for i = 1:numcc
     model = [dv ' ~ 1 '];
     rownames = [];
+     pred  = {};
     for j = 1:k
         bit = PredBitMap{j, i};
         if bit == 1
             model = [model ' + ' ivlist{j}];
             rownames{end+1} = ivlist{j};
+            pred  = [pred ivlist{j}];
         end
     end
-    Model{i} = model;
+    Model{i} = model; % Sub-Models for each combination of predictors
+    ModelPred{i} = pred; % Predictors in each sub-model
     Rownames{i} = strjoin(rownames,',');
 end
 
@@ -174,8 +185,8 @@ APSr2     = nan(numcc,numPerm);
 % [~,orderApsBitMap]          = sort(apsBitMap);
 % apsBitMap(orderApsBitMap)   = 1:numel(apsBitMap); % remap apsBitMap after removing entries for Covariates
 
-% parfor (iPerm = 1:numPerm, parforArg) 
-for iPerm = 1:numPerm % Permutation of subject labels. First iteration uses the correct labels
+parfor (iPerm = 1:numPerm, parforArg) 
+% for iPerm = 1:numPerm % Permutation of subject labels. First iteration uses the correct labels
     
     % First iteration uses the correct labels
     if iPerm == 1
@@ -184,8 +195,10 @@ for iPerm = 1:numPerm % Permutation of subject labels. First iteration uses the 
         tempOrder = randperm(Ns);
     end
 %     tempOrder = randOrder(:,iPerm);
-    dataTemp  = dataMatrix;
-    dataTemp.(dv) = dataMatrix.(dv)(tempOrder);
+    y           = dataMatrix.(dv)(tempOrder);
+    mu_y        = mean(y);
+    dataTemp    = dataMatrix;
+%     dataTemp.(dv) = dataMatrix.(dv)(tempOrder);
     
     % -------------------------------------------------------------------------
     % Estimate All-Possible-Subsets (APS) Regression
@@ -196,10 +209,45 @@ for iPerm = 1:numPerm % Permutation of subject labels. First iteration uses the 
 %     APSMatrix = array2table(nan(numcc, 2),'RowNames',cellstr(Rownames),'VariableNames',{'k','R2'});
     APSMatrix = nan(numcc,1);
     for i = 1:numcc
-        mlrTemp  = fitlm(dataTemp,Model{i});
-        APSMatrix(i)    = mlrTemp.Rsquared.Ordinary;
+
+        % Calculate R2 by hand
+        X = [ones(Ns,1) dataTemp{:,ModelPred{i}}];
+        betas   = X\y;
+        ss_tot  = sum((y - mu_y).^2);
+        ss_res  = sum((X*betas - y).^2);
+        APSMatrix(i) = 1 - ss_res/ss_tot;
+%         mlrTemp  = fitlm(dataTemp,Model{i},'RobustOpts',doRobust);
+%         APSMatrix(i)    = mlrTemp.Rsquared.Ordinary;
+
 %         APSMatrix{i, 'R2'} = mlrTemp.Rsquared.Ordinary;
 %         APSMatrix{i, 'k'} = sum(PredBitMap{:,i});
+        
+        %-(not implemented) Possibly a more efficient way to estimate R2 by the
+        % model. Note that it does not work for interactions or squared
+        % terms defined in Wilkinson annotation. Instead these should be
+        % modelled by the user.
+        
+%         y = dataTemp.(dv);
+%         X = [ones(Ns,1) dataTemp{:,ModelPred{i}}];
+%         mu_y    = mean(y);
+%         if doRobust
+%             [betas stats]= robustfit(X,y,[],[],'off');
+%             ss_res  = sum(stats.resid.^2);
+%         else
+% %             [b,bint,r,rint,stats] = regress(dataTemp.(dv),dataTemp{:,ModelPred{i}});
+%             betas   = X\y; % add constant term to make identical to robust fit and fitlm
+%             ss_res  = sum((X*betas - y).^2);
+%         end
+%         ss_tot  = sum((y - mu_y).^2);
+%         R2      = 1 - ss_res/ss_tot;
+%         APSMatrix(i) = 1 - ss_res/ss_tot;
+%         tic
+%         y = dataTemp.(dv);
+
+
+%         toc
+        
+        
     end
 
     % Reorder APSMartix accoring to apsBitMap
@@ -239,24 +287,28 @@ for iPerm = 1:numPerm % Permutation of subject labels. First iteration uses the 
     APSr2(:,iPerm) = R2;
 end
 
-varnames = {'Coefficient','PercentTotal','tR2'};
+varnames = {'Coefficient','PercentTotal','tVal','pVal'};
 if  doPerm
     varnames = [varnames ,'pPerm','pPareto','tPerm','tPareto'];
 end
 
+%-Estimate T-scores and p-values
+%-------------------------------
 R2       = abs(coeffPerm(:,1));
 r        = real(sqrt(R2));
 DF       = mlr.DFE;
-tR2       = r ./ sqrt((1-R2)./DF);
+tR2      = r ./ sqrt((1-R2)./DF);
+pVal     = 1-spm_Tcdf(tR2,DF);
 
 % tsquared = DF.*(R2) ./ (1 - R2);
 % tsquared = DF.*(r) ./ (1 - r);
 % tR = sqrt(tsquared);
 
 commonalityMatrix = array2table(nan(numcc, numel(varnames)),'RowNames',cellstr(Rownames),'VariableNames',varnames);
-commonalityMatrix.('Coefficient') = coeffPerm(:,1);
+commonalityMatrix.('Coefficient') = coeffPerm(:,1); % Coefficients reflected variance explained (i.e. R2, not r-value as in GLM)
 commonalityMatrix{:,'PercentTotal'} = commonalityMatrix{:,'Coefficient'}./APSr2(numcc,1);
-commonalityMatrix.tR2 = tR2;
+commonalityMatrix.tVal  = tR2;
+commonalityMatrix.pVal  = pVal;
 commonalityMatrix.APSr2 = APSr2(:,1);
 
 if doPerm
@@ -265,11 +317,13 @@ if doPerm
     signflip = sign(coeffPerm(:,1));
     origdata = coeffPerm(:,1) .* signflip;
     nulldata = coeffPerm .* signflip;
+%     origdata = abs(coeffPerm(:,1));
+%     nulldata = abs(coeffPerm);
     pPerm    = sum(nulldata' > repmat(origdata',numPerm,1))/numPerm;
     pPareto  = palm_pareto(origdata',nulldata',0,0,0);
     tPareto  = abs(tinv(pPareto/2,Ns));
     tPerm    = abs(tinv(pPerm/2,Ns));
-    commonalityMatrix{:,{'pPerm','pPareto','tPerm','tPareto','tR2'}} = [pPerm' pPareto' tPerm' tPareto' tR2];
+    commonalityMatrix{:,{'pPerm','pPareto','tPerm','tPareto'}} = [pPerm' pPareto' tPerm' tPareto'];
 end
 
 
@@ -305,6 +359,11 @@ for ivar = 1:nvar
     commonalityMatrix{idx,:} = commonalityMatrix{idx,:}.*signvar;
 end
 
+% -----------------------------------------------------------------
+% Exclude variables prefixed by 'c_' (i.e.covariates of no interest)
+% -----------------------------------------------------------------
+idxRemove = contains(commonalityMatrix.Properties.RowNames,'c_');
+commonalityMatrix(idxRemove,:) = [];
 
 function [newlist] = commonality_genlist(ivlist,value)
 

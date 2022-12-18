@@ -1,4 +1,4 @@
-function kat_vba_tfce_threshold(cfg)
+function [cfg] = ca_vba_tfce_threshold(cfg)
 % Apply TFCE thresholding using matlab_tfce_transform on output from
 % voxel-based analysis with permutations
 % https://github.com/markallenthornton/MatlabTFCE
@@ -17,11 +17,12 @@ function kat_vba_tfce_threshold(cfg)
 % TCFE options
 % ------------------
 try tfce        = cfg.tfce;        catch           end
-try H           = tfce.H;          catch H = 2;    end % height exponent, default = 2
-try E           = tfce.E;          catch E = 0.5;  end % extent exponent, default = 0.5
-try C           = tfce.C;          catch C = 26;   end % connectivity, default = 26 (6 = surface, 18 = edge, 26 = corner)
-try dh          = tfce.dh;         catch dh = 0.2; end %  step size for cluster formation, default = .1
+try H           = tfce.H;          catch H  = 2;   end % height exponent, default = 2
+try E           = tfce.E;          catch E  = 0.5; end % extent exponent, default = 0.5
+try C           = tfce.C;          catch C  = 26;  end % connectivity, default = 26 (6 = surface, 18 = edge, 26 = corner)
+try dh          = tfce.dh;         catch dh = 0.1; end %  step size for cluster formation, default = .1
 try th          = tfce.th;         catch th = 1.97;end % Threshold level to apply correction
+try clustSize   = tfce.clustersize;catch clustSize=5;end % Minimum number of voxels forming a cluster
 try Ns          = tfce.Ns;         catch error('Sample size is needed.'); end % Number of subject
 try Np          = tfce.Np;         catch error('Number of predictors is needed.'); end % Number of predictors
 try path2data   = tfce.path2data;  catch error('Specify path to permutations.'); end
@@ -44,48 +45,76 @@ for iCoeff = 1:numel(nameCoefficients)
 
     % Get t-stats for observed data (1st image)
     V = spm_vol(fname{1});
-    Y = spm_read_vols(V);
-    Ypos = Y;Ypos(Y<0)=0;
-    Yneg = Y;Yneg(Y>0)=0;
-    [trealPos]  = matlab_tfce_transform(Ypos,H,E,C,dh,th);
-    [trealNeg]  = matlab_tfce_transform(abs(Yneg),H,E,C,dh,th);
-    treal       = trealPos-trealNeg;
+    Yreal = spm_read_vols(V);
+    Ypos = Yreal;Ypos(Yreal<0)=0;
+    Yneg = Yreal;Yneg(Yreal>0)=0;
+    [trealPos]  = ca_matlab_tfce_transform(Ypos,H,E,C,dh,th);
+    [trealNeg]  = ca_matlab_tfce_transform(abs(Yneg),H,E,C,dh,th);
+    treal       = trealPos-trealNeg;    
     
     % cycle through permutations
-    nvox = numel(Y);
-    exceedancesPos = zeros(size(Y));
-    exceedancesNeg = zeros(size(Y));
+    nvox = numel(Yreal);
+    exceedancesPos = zeros(size(Yreal));
+    exceedancesNeg = zeros(size(Yreal));
 %     parfor(p = 1:nperm,parworkers)
     parfor p = 1:nperm
-        V = spm_vol(fname{p});
-        Y = spm_read_vols(V);
-        Ypos = Y;Ypos(Y<0)=0;
-        Yneg = Y;Yneg(Y>0)=0;
-        [tnullPos] = matlab_tfce_transform(Ypos,H,E,C,dh,th);
-        [tnullNeg] = matlab_tfce_transform(abs(Yneg),H,E,C,dh,th);
+        V           = spm_vol(fname{p});
+        Y           = spm_read_vols(V);
+        Ypos = Y; Ypos(Y<0)=0;
+        Yneg = Y; Yneg(Y>0)=0;
+        [tnullPos]  = ca_matlab_tfce_transform(Ypos,H,E,C,dh,th);
+        [tnullNeg]  = ca_matlab_tfce_transform(abs(Yneg),H,E,C,dh,th);
         % compare maxima to t-values and increment as appropriate
         curexceeds      = max(tnullPos(:)) >= trealPos;
         exceedancesPos  = exceedancesPos + curexceeds;
-        curexceeds      = min(-tnullNeg(:)) <= -trealNeg;
+        curexceeds      = max(tnullNeg(:)) >= trealNeg;
         exceedancesNeg  = exceedancesNeg + curexceeds;
+        maxNeg(p) = max(tnullNeg(:));
     end
 
     correctedPos = exceedancesPos./(nperm);
     correctedNeg = exceedancesNeg./(nperm);
 
     corrected4d = []; corrected = [];
-    corrected4d(:,:,:,1) = correctedPos;
-    corrected4d(:,:,:,2) = correctedNeg;
-    corrected = min(corrected4d,[],4);
-%     corrected = min([correctedPos; correctedNeg],4);
-    treal(corrected>0.05) = 0;
+    corrected4d(:,:,:,1)    = correctedPos;
+    corrected4d(:,:,:,2)    = correctedNeg;
+    corrected               = min(corrected4d,[],4);
+    Yreal(corrected>0.05)   = 0;
 
+    % ---------------------------------------------------------
+    % Remove clusters smaller than certain number of voxels
+    % ---------------------------------------------------------
+    cc = bwconncomp(abs(Yreal)>=th,C);
+    for iclust = 1:cc.NumObjects
+        if numel(cc.PixelIdxList{iclust})<clustSize
+            Yreal(cc.PixelIdxList{iclust}) = 0;
+        end
+    end
+    
+    % ----------------------------
     % Write output image
-    fout = fullfile(cfg.outDir,sprintf('%s_tfce%d.nii',namecoeff,th*100));
+    % ----------------------------
+    fout = fullfile(path2data,sprintf('tfce%3.f_%s.nii',th*100,namecoeff));
     V.fname = fout;
-    spm_write_vol(V,treal);
+    V.private = [];
+    spm_write_vol(V,Yreal);
+    
+    fout = regexprep(fout,typeStats,'pval');
+    V.fname = fout;
+    V.private = [];
+    spm_write_vol(V,corrected);
 end
 
+%% Prepare output
+tfce.H  = H;
+tfce.E  = E;
+tfce.C  = C;
+tfce.dh = dh;
+tfce.th = th;
+tfce.numPerm = nperm;
+cfg.tfce= tfce;
+
+save(fullfile(cfg.outDir,'analysis_cfg.mat'),'cfg','tfce');
 
 % function [tPos tNeg] = tfce_transform(fname,H,E,C,dh,th)
 % 

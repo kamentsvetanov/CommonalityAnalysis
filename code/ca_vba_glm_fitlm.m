@@ -42,9 +42,12 @@ function [cfg,outDir] = ca_vba_glm_fitlm(T,cfg)
 % 02/10/2017 - function initiation
 % 12/10/2021 - streamlining with WIlkinson notations
 % 10/01/2022 - estimate main effects as 'One-Sample' by specifying 'y ~ 1'
+% 15/04/2022 - choose optional starting value of the permutation number
+%              (e.g. continue aborted analysis)
+% 21/04/2022 - omit reporting covariates of no interest by prefixing with 'c_'              
 %
 % Author : Kamen Tsvetanov, Ph.D., Neurocognitive Ageing
-% Affil. : Department of Psychology, University of Cambridge
+% Affil. : Department of Clinical Neurosciences, University of Cambridge
 % Email  : kamen.tsvetanov@gmail.com  
 % Website: http://www.kamentsvetanov.com
 %__________________________________________________________________________
@@ -53,9 +56,11 @@ function [cfg,outDir] = ca_vba_glm_fitlm(T,cfg)
 
 try rootDir         = cfg.rootDir;          catch rootDir       = pwd;  end % Root directory to output analysis results
 try doZscore        = cfg.doZscore;         catch doZscore      = 1;    end % Whether or not to z-score data (Default,1)
+try doLogTrans      = cfg.doLogTrans;       catch doLogTrans    = 0;    end % Whether or not to log-transform neuroimaging data
 try doCommonality   = cfg.doCommonality;    catch doCommonality = 0;    end % Whehter or not to run commonality analysis (Default, 0)
 try doRobust        = cfg.doRobust;         catch doRobust      = 0;    end % Whether or not to run robust regression (Default, 0)
 try numPerm         = cfg.numPerm;          catch numPerm       = 1000; end % Number of permuations
+try startPerm       = cfg.startPerm;        catch startPerm     = 1;    end % (Optional) pick a different starting position of the permuations
 try f_mask          = cfg.f_mask;           catch error('Error. \nPlease provide brain mask.'); end
 try Model           = cfg.model;            catch error('Error. \nPlease specify the model using Wilkinson notaions.'); end 
 
@@ -121,14 +126,28 @@ for iMap = 1:numMap
     y   = spm_read_vols(V);
     y   = permute(y,[4 1 2 3]);
     Y(:,:,iMap) = y(:,Ymask);
+    
+    if iMap == 1
+        Vdv = V(1); % Store head of dependent variable modality for later
+    end
 end
+
+% Log-transform imaging data
+% --------------------------
+% N.B. needs further refinement, as it would apply to all modalities (if
+% more than one modality is given).
+if doLogTrans
+    Y = log(Y);
+end
+
+
 
 if doZscore
     tbl(:,idxNumeric) = normalize(tbl(:,idxNumeric));
     Y = normalize(Y,1);
 end
 
- % ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
 % Prepare the table for fitlm with one voxel for dependent and predictor
 % maps and set a template to extract data after parpool
 % ------------------------------------------------------------------------
@@ -151,7 +170,8 @@ strModel = regexprep(strModel,'(\<[a-z])','${upper($1)}');
 strModel = regexprep(strModel,{'+',' '},'');
 strModel = regexprep(strModel,'~','_iv');
 strModel = regexprep(strModel,'*','X');
-strModel = ['dv' strModel '_n' num2str(numSub) '_nPerm' num2str(numPerm)];
+strModel = ['dv' strModel '_n' num2str(numSub) '_nPerm' num2str(numPerm) '_' datestr(now,'yyyymmdd')];
+% strModel = ['dv' strModel '_n' num2str(numSub) '_nPerm' num2str(numPerm) '_Robust' num2str(doRobust) '_' datestr(now,'yyyymmdd')];
 
 % ----------------------------------------------
 % Predefine Commonality Analysis or GLM output maps
@@ -170,20 +190,41 @@ else
     outDir = fullfile(rootDir,['glm_' strModel]);
 end
 
+%--------------------------------------------------------------------
+% Remove coefficients prefixed by 'c_', i.e. remove covariates of no
+% interest
+%--------------------------------------------------------------------
+nameCoef(startsWith(nameCoef,'c_'))=[];
+
 % -----------------
 % Make folders
 % -----------------
 for i=1:numCoef
-    if ~contains(nameCoef{i},'c_') 
+%     if ~contains(nameCoef{i},'c_') 
         nameOutput = regexprep(nameCoef{i},'f_','');
         mkdir(fullfile(outDir,['tval_',nameOutput]));
     %     mkdir(fullfile(outDir,['bval_',nameOutput]));
-    end
+%     end
 end
 
+
 %% ------------------------------------------------------------------------
-% Permutations 
+
 randOrder   = palm_quickperms(numSub,[],numPerm);
+
+%-Assemble and save output structure
+% ----------------------------------
+cfg.tbl         = tbl;
+cfg.randOrder   = randOrder;
+cfg.outDir      = outDir;
+cfg.mlr         = mlr_temp;
+cfg.doZscore    = doZscore;
+cfg.doRobust    = doRobust;
+fout = fullfile(outDir,'analysis_cfg.mat');
+save(fout,'cfg');
+
+%-Permutations 
+%----------------
 switch modeltype
     case 'one-sample' % INCOMPLETE. Estimate Main/Average/Group effect using one-sample t-test
         cfg_temp = cfg;
@@ -191,7 +232,7 @@ switch modeltype
        
     case 'regression'
         
-        for iperm = 1:numPerm
+        for iperm = startPerm:numPerm
 %             iperm
 
             tempOrder   = randOrder(:,iperm);
@@ -212,8 +253,8 @@ switch modeltype
                         mlr             = fitlm(tbl_temp,Model,'RobustOpts',doRobust);
                         cfgtemp         = cfg; 
                         cfgtemp.mlr     = mlr;
-                        CA              = ca_stats_commonality(cfgtemp);
-                        tvals(iVox,:)   = CA{:,'tR2'};
+                        CA              = ca_stats_commonality_fast(cfgtemp);
+                        tvals(iVox,:)   = CA{:,'tVal'};
         %                 bvals(iVox,:)   = CA{:,'Coefficient'};
                     end           
                 end
@@ -249,12 +290,12 @@ switch modeltype
             % every effect (common and shared) 
 
             for i=1:numCoef
-                % Output coefficients not containing covariates 
-                % (i.e. predictors prefixed by 'c_')
-                if ~contains(nameCoef{i},'c_') 
+%                 % Output coefficients not containing covariates 
+%                 % (i.e. predictors prefixed by 'c_')
+%                 if ~contains(nameCoef{i},'c_') 
                     nameOutput      = regexprep(nameCoef{i},'f_','');
-                    Vtemp           = V(1);
-                    Vtemp.pinfo(1)  =1;
+                    Vtemp           = Vdv;
+                    Vtemp.pinfo(1)  = 1;
                     tmap            = zeros(Vtemp.dim);
             %         bmap            = zeros(Vtemp.dim);
 
@@ -269,17 +310,9 @@ switch modeltype
             %         bmap(idxMask)   = bvals(:,i);  
             %         Vtemp.fname     = fullfile(bdir,sprintf('results_null_%.5d.nii',iperm));
             %         spm_write_vol(Vtemp,bmap);
-                end
+%                 end
             end  
         end
 end
 
-% ----------------------------------
-% Assemble and save output structure
-% ----------------------------------
-cfg.tbl         = tbl;
-cfg.randOrder   = randOrder;
-cfg.outDir      = outDir;
-cfg.mlr         = mlr_temp;
-fout = fullfile(outDir,'analysis_cfg.mat');
-save(fout,'cfg');
+

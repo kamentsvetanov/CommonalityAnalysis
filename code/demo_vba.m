@@ -20,12 +20,18 @@
 %           Model = 'f_t1w ~ age + sex'; Specifies analysis to predict T1w
 %           intensity using age and sex as predictors.
 %
-% Depenendencies:
-% kat_import('spm12');
-% kat_import('matlabcentral'); % Needed for 'rdir' function
-% kat_import('tfce');
+% Depenendencies (download from https://github.com/kamentsvetanov/external):
+% SPM 12 
+% functions from matlabcentral (e.g. rdir)
+% MatlabTFCE toolbox (https://github.com/markallenthornton/MatlabTFCE)
+%
+% These dependencies are at https://github.com/kamentsvetanov/external
+% .../mat/spm12
+% .../mat/matlabcentral
+% .../mat/tfce
+% and need to be loaded in Matlab's path
 
-
+clear 
 rootdir = '/home/kt03/Projects/public-code/CommonalityAnalysis/data/rsfa/';
 load(fullfile(rootdir,'subject_info.mat'));
 
@@ -40,7 +46,7 @@ cfg.rootDir         = '/imaging/camcan/sandbox/kt03/temp/';
 cfg.f_mask          = fullfile(rootdir,'mask.nii');
 cfg.numPerm         = 4;
 cfg.doCommonality   = 1;
-cfg = ca_vba_glm_fitlm_tfce(T,cfg);
+cfg                 = ca_vba_glm_fitlm(T,cfg);
 
 % ---------------------------
 % Perform TFCE thresholding
@@ -50,9 +56,19 @@ cfg.tfce.typeStats  = 'tval';
 cfg.tfce.Ns         = size(cfg.tbl,1);
 cfg.tfce.Np         = size(cfg.tbl,2)-1;
 cfg.tfce.th         = 1.5;
-ca_vba_tfce_threshold(cfg);
+cfg                 = ca_vba_tfce_threshold(cfg);
 
+%% ------------------------------------------------------------------------
+% Extract information for significant TFCE clusters in a results Table 
+% -------------------------------------------------------------------------
+prefix  = 'tfce150';
+cfg     = ca_vba_tfce_resultsTable(cfg,prefix);
+fout    = fullfile(cfg.outDir,sprintf('resultsTable_%s.xlsx',prefix));
+writetable(cfg.tfce.tableConcat,fout);
+
+%% ------------------------------------------------------------------------ 
 % Clean up some directories
+% -------------------------------------------------------------------------
 fn = dir(cfg.outDir);fn = fn([fn.isdir]);fn = {fn.name}';
 fn(ismember(fn,{'..','.'}))=[];
 for idir = 1:numel(fn)

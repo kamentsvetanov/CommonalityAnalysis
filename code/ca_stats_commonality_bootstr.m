@@ -1,4 +1,5 @@
  function [commonalityMatrix] = kat_stats_commonality(cfg)
+% INCOPLETE! NOT WORKING YET! DO NOT USE
 % Function performing Commonality Analysis, which partitions R2 explained
 % by all predictors in multiple linear regression into variance unique to
 % each predictor and variance shared between each combination of predictors
@@ -18,7 +19,12 @@
 % cfg.numPerm     - Number of permuations (default,1)
 % cfg.runParfor   - Run usuing parpool 
 % cfg.normValue   - Whether to renormalise Variance explained relative to a variable of interest (to normalization value)
-% 
+% cfg.doRobust    - whether or not to do robust regression
+%
+% Script edit log (kat)
+% -----------------------------
+%
+%
 % --------------------------------------------------------------
 % Required packages (https://github.com/kamentsvetanov/external)
 % --------------------------------------------------------------
@@ -35,11 +41,13 @@ switch strClass
         error('Input should be structure or Linear Model');
 end
 
-try parforArg   = cfg.runParfor;    catch parforArg      = 0; end % Run using parpool or not [0 | inf]
-try numPerm     = cfg.numPerm;      catch numPerm        = 1; end % Number of permtuations 
-try doPerm      = cfg.doPerm;       catch doPerm         = 0; end % Whether to Run permuations [0 | 1]
-try normValue   = cfg.normValue;    catch normValue      = 1; end % Whether to renormalise Variance explained relative to a variable of interest (to normalization value)
- 
+try parforArg   = cfg.runParfor;    catch parforArg     = 0; end % Run using parpool or not [0 | inf]
+try numPerm     = cfg.numPerm;      catch numPerm       = 1; end % Number of permtuations 
+try doPerm      = cfg.doPerm;       catch doPerm        = 0; end % Whether to Run permuations [0 | 1]
+try normValue   = cfg.normValue;    catch normValue     = 1; end % Whether to renormalise Variance explained relative to a variable of interest (to normalization value)
+try doRobust    = cfg.doRobust;     catch doRobust      = 0; end % Whether or not to perform robust regression 
+try numboot     = cfg.numboot;      catch numboot       = 1000; end % Number of bootstraps
+
 % Set parforArg to inf if runParfor was 1
 if parforArg == 1
     parforArg = Inf;
@@ -117,14 +125,17 @@ Rownames = strings(size(PredBitMap,2),1);
 for i = 1:numcc
     model = [dv ' ~ 1 '];
     rownames = [];
+    pred  = {};
     for j = 1:k
         bit = PredBitMap{j, i};
         if bit == 1
             model = [model ' + ' ivlist{j}];
             rownames{end+1} = ivlist{j};
+            pred  = [pred ivlist{j}];
         end
     end
-    Model{i} = model;
+    Model{i} = model; % Sub-Models for each combination of predictors
+    ModelPred{i} = pred; % Predictors in each sub-model
     Rownames{i} = strjoin(rownames,',');
 end
 
@@ -196,8 +207,8 @@ for iPerm = 1:numPerm % Permutation of subject labels. First iteration uses the 
 %     APSMatrix = array2table(nan(numcc, 2),'RowNames',cellstr(Rownames),'VariableNames',{'k','R2'});
     APSMatrix = nan(numcc,1);
     for i = 1:numcc
-        mlrTemp  = fitlm(dataTemp,Model{i});
-        APSMatrix(i)    = mlrTemp.Rsquared.Ordinary;
+       R2   = bootstrp(numboot, @ca_stats_bootstr_fitlm,dataTemp.(dv),dataTemp{:,ModelPred{i}},doRobust); %
+       R2   = bootci(numboot, @ca_stats_bootstr_fitlm,dataTemp.(dv),dataTemp{:,ModelPred{i}},doRobust); %
 %         APSMatrix{i, 'R2'} = mlrTemp.Rsquared.Ordinary;
 %         APSMatrix{i, 'k'} = sum(PredBitMap{:,i});
     end
