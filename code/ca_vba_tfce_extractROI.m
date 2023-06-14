@@ -52,7 +52,7 @@ R.id = [1:size(R,1)]';
 varnameMaps = regexp(cfg.model,('f_\w*'),'match');
 
 % Create Cluster names based on coefficient name, cluster number and node name
-nodenames = strcat(R.coeff_name,'_',R.cluster_name);
+nodenames = strcat(R.coeff_name,'_',R.cluster_name,'_',string(R.id));
 nodenames = regexprep(nodenames,'\.','_');
 nodenames = regexprep(nodenames,{' ','-'},'');
 

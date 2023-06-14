@@ -78,7 +78,7 @@ prefix  = 'tfce150';
 cfg     = ca_vba_tfce_resultsTable(cfg,prefix);
 fout    = fullfile(cfg.outDir,sprintf('resultsTable_%s.xlsx',prefix));
 writetable(cfg.tfce.tableConcat,fout);
-save(regexprep(fout,'xlsx','mat'),'cfg');
+save(regexprep(fout,'xlsx','mat'),'cfg','T');
 
 %% ------------------------------------------------------------------------ 
 % Clean up some directories
@@ -89,11 +89,11 @@ for idir = 1:numel(fn)
     rmdir(fullfile(cfg.outDir,fn{idir}),'s');
 end
 
-%% ROI extraction (based on Clusters)
+%% ROI extraction (based on Clusters for a prespecified Contrast/Coefficient)
 % Select clusters based on TFCE resutls for contasts of interest
-cfg1        = cfg;
-cfg.conName = {'Age'};% {'Age','Sex'}
-cfg.doMask  = 1; % whether or not to save masks of the clusters
-N = ca_vba_tfce_extractROI(cfg,T);
+cfg1         = cfg;
+cfg1.conName = {'Age'};% {'Age','Sex'} % Select contrast of interest
+cfg1.doMask  = 1; % whether or not to save masks of the clusters
+N = ca_vba_tfce_extractROI(cfg1,T);
     
     
