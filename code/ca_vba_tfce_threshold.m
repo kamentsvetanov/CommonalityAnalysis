@@ -23,16 +23,27 @@ try C           = tfce.C;          catch C  = 26;  end % connectivity, default =
 try dh          = tfce.dh;         catch dh = 0.1; end %  step size for cluster formation, default = .1
 try th          = tfce.th;         catch th = 1.97;end % Threshold level to apply correction
 try clustSize   = tfce.clustersize;catch clustSize=5;end % Minimum number of voxels forming a cluster
-try Ns          = tfce.Ns;         catch error('Sample size is needed.'); end % Number of subject
-try Np          = tfce.Np;         catch error('Number of predictors is needed.'); end % Number of predictors
-try path2data   = tfce.path2data;  catch error('Specify path to permutations.'); end
-try typeStats   = tfce.typeStats;  catch error('Specify folder prefix, based on statistic type. [tVal | rVal | bVal]'); end % This is the pattern used to select directories, e.g. bVal, tVal glmTCA
+try Ns          = tfce.Ns;         catch Ns = size(cfg.tbl,1); fprintf('Selecting sample size based on subjects in tbl.\n'); end % Number of subject
+try Np          = tfce.Np;         catch Np = size(cfg.tbl,2)-1; fprintf('Selecting number predictors based on variables in tbl.\n'); end % Number of predictors
+try path2data   = tfce.path2data;  catch error('Specify path to permutations.\n'); end
+try typeStats   = tfce.typeStats;  catch error('Specify folder prefix, based on statistic type. [tval | rval | bval].\n'); end % This is the pattern used to select directories, e.g. bVal, tVal glmTCA
+
+try showIntercept = tfce.showIntercept; catch showIntercept = 0; end % Whether to show results for (Intercept). Default = 0, no 
 
 nameCoefficients    = dir(fullfile(path2data,[typeStats '*']));
 nameCoefficients    = nameCoefficients([nameCoefficients.isdir]);
 nameCoefficients    = {nameCoefficients.name}';
 numCoeff            = numel(nameCoefficients);
 df                  = Ns - Np; % Degrees of freedom
+
+% -------------------------------------------------
+% Exclude the Intercept, as it's rarely of interest
+% -------------------------------------------------
+if ~showIntercept == 1
+    idx_intercept = contains(nameCoefficients,'(Intercept)');
+    nameCoefficients(idx_intercept) = [];
+end
+  
 
 % ------------------------------
 % Loop through each coefficient

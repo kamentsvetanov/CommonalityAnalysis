@@ -61,7 +61,7 @@ try doCommonality   = cfg.doCommonality;    catch doCommonality = 0;    end % Wh
 try doRobust        = cfg.doRobust;         catch doRobust      = 0;    end % Whether or not to run robust regression (Default, 0)
 try numPerm         = cfg.numPerm;          catch numPerm       = 1000; end % Number of permuations
 try startPerm       = cfg.startPerm;        catch startPerm     = 1;    end % (Optional) pick a different starting position of the permuations
-try f_mask          = cfg.f_mask;           catch error('Error. \nPlease provide brain mask.'); end
+try f_mask          = cfg.f_mask;           catch error('Error. \nPlease provide brain mask.'); end % Brain mask to limit analysis for voxels in the mask
 try Model           = cfg.model;            catch error('Error. \nPlease specify the model using Wilkinson notaions.'); end 
 
 
@@ -73,9 +73,13 @@ idxCategorical  = vartype('categorical');
 % -------------------------
 % Get Variable names
 % -------------------------
-VarNames = strtrim(split(Model,["~","*","+","^"]));
-ResponseVar = VarNames(1); 
-PredictorVars = VarNames(2:end);
+VarNames = strtrim(split(Model,["~","*","+","^2"]));
+VarNames(cellfun(@isempty,VarNames)) = [];
+% tblTemp = array2table(rand(1000,numel(VarNames)),'VariableNames',VarNames);
+% mlrTemp = fitlm(tblTemp,Model);
+
+ResponseVar     = VarNames(1);%mlrTemp.ResponseName;% 
+PredictorVars   = VarNames(2:end);%mlrTemp.PredictorNames;%
 
 % -------------------------
 % '1' in PredictorVars requires estimation of main effect, e.g. do not
@@ -110,8 +114,8 @@ VarNamesMaps    = VarNames(idxMaps);
 VarNamesGlobal  = VarNames(~contains(VarNames,'f_'));
 
 numVox   = size(idxMask,1);
-numSub      = size(tbl,1);
-numMap      = numel(idxMaps);
+numSub   = size(tbl,1);
+numMap   = numel(idxMaps);
 
 Y = nan(numSub,numVox,numMap);
 
@@ -152,7 +156,7 @@ end
 % maps and set a template to extract data after parpool
 % ------------------------------------------------------------------------
 Temp = tbl(:,VarNamesGlobal);
-Temp{:,VarNamesMaps} = squeeze(Y(:,ceil(numVox/2),:));
+Temp{:,VarNamesMaps} = squeeze(Y(:,ceil(numVox/2),:)); %If may crash if the selected voxel has NaN or other issues.Could replace with random variable having same lenght
 tbl = Temp;
 
 mlr_temp     = fitlm(tbl,Model);
@@ -201,8 +205,21 @@ nameCoef(startsWith(nameCoef,'c_'))=[];
 % -----------------
 for i=1:numCoef
 %     if ~contains(nameCoef{i},'c_') 
-        nameOutput = regexprep(nameCoef{i},'f_','');
-        mkdir(fullfile(outDir,['tval_',nameOutput]));
+        outname = regexprep(nameCoef{i},'f_','');
+        
+        % -------------------------------------------------------------------------
+        % Rename interaction terms, so that ':' in interaction terms is replaced 
+        % with 'X'. This is for ':' is invalid character for variable and filenames
+        % -------------------------------------------------------------------------
+        outname = regexprep(outname,':','X');  
+
+        % -------------------------------------------------------------------------
+        % Rename squared terms, so that '^' is removed, avoiding invalid character for variable and filenames
+        % -------------------------------------------------------------------------
+        outname = regexprep(outname,'\^','');  
+        
+        nameOutput{i} = outname;
+        mkdir(fullfile(outDir,['tval_',outname]));
     %     mkdir(fullfile(outDir,['bval_',nameOutput]));
 %     end
 end
@@ -293,14 +310,16 @@ switch modeltype
 %                 % Output coefficients not containing covariates 
 %                 % (i.e. predictors prefixed by 'c_')
 %                 if ~contains(nameCoef{i},'c_') 
-                    nameOutput      = regexprep(nameCoef{i},'f_','');
+                    
+                    
                     Vtemp           = Vdv;
                     Vtemp.pinfo(1)  = 1;
                     tmap            = zeros(Vtemp.dim);
             %         bmap            = zeros(Vtemp.dim);
 
                     % Save t-stats
-                    tdir            = fullfile(outDir,['tval_',nameOutput]); 
+                    outname         = regexprep(nameOutput{i},'f_','');
+                    tdir            = fullfile(outDir,['tval_',outname]); 
                     tmap(idxMask)   = tvals(:,i);  
                     Vtemp.fname     = fullfile(tdir,sprintf('results_null_%.5d.nii',iperm));
                     spm_write_vol(Vtemp,tmap);

@@ -1,4 +1,4 @@
-function [cfg] = ca_vba_tfce_resultsTable(cfg,prefix)
+function [cfg] = ca_vba_tfce_resultsTable(cfg,prefix,clustersize)
 % Post-process TFCE result maps to generate results table, similar to SPM
 % Results tables
 % 
@@ -14,6 +14,8 @@ function [cfg] = ca_vba_tfce_resultsTable(cfg,prefix)
 %           These are likely to be 'tfce***', where *** was the
 %           defined threshold level. Note that 'prefix' is further defined
 %           by adding type of statistics used for TFCE below.
+% clustersize - cluster size in number of voxels to be reported in the
+%           table. Smaller clusters are ignored.
 %
 % Outputs:
 %   cfg   - same as input inluding additional subfiedl statTable.
@@ -38,7 +40,7 @@ function [cfg] = ca_vba_tfce_resultsTable(cfg,prefix)
 % ----------------------- BEGIN CODE ------------------------
 
 voxthresh   = .1; % generally T-score, e.g. T=1.97 is equivalent to p-value =0.05
-clustersize =  9; % cluster size in number of voxels
+% clustersize =  1; % cluster size in number of voxels
 npeaks      = 10; % maximum number of peaks 
 
 
@@ -51,9 +53,12 @@ try prefix = cfg.prefix; catch prefix = ['tfce' num2str(cfg.tfce.th*100)]; end %
 %-Select files based on type of statistics used for tfce
 %-------------------------------------------------------
 prefix  = [prefix '_' typeStats '_'];
+fn   = ca_rdir(fullfile(cfg.outDir,[prefix '*']));fn = {fn.name}';
 
-fn   = rdir(fullfile(cfg.outDir,[prefix '*']));fn = {fn.name}';
 
+
+%-Node information using AAL
+%---------------------------
 Vaal = spm_vol('/imaging/camcan/sandbox/kt03/projects/external/mat/peak_nii/aal_MNI_V4.img'); 
 Yaal = spm_read_vols(Vaal);
 aalInv = inv(Vaal(1).mat);
@@ -82,7 +87,6 @@ for icoef = 1:numel(fn)
     fname_pval = regexprep(fname,typeStats,'pval'); % Select pval maps
 
     
-
     [resultTbl] = ca_vba_get_cluster_maxima(fname,fname_pval, voxthresh, clustersize, npeaks);
     
     %-Get inverse transform:
@@ -161,7 +165,9 @@ for icoef = 1:numel(fn)
         Tclust.cluster_pval(iC)  = mean(pval);
         Tclust.cluster_voxels{iC}= idx;
     end
+    
     contrastname = (regexprep(f,prefix,''));
+      
     Results.(contrastname) = Tclust;
     ResTbl.(contrastname) = resultTbl;
     resultTbl.contrast_name = strings(size(resultTbl,1),1);

@@ -93,11 +93,19 @@ aalXYZmm = aalXYZmm(:,ind);
 % end
 
 % Concatenate Positive and Negative effects
-N = [N; Nn];
-Z = [Z; -Zn];
-M = [M Mn];
-A = [A; An+max(A)];%Add max number in A to An to avoid merging of clusters with identical IDs
+if ~isempty(N) & ~isempty(Nn)
+    N = [N; Nn];
+    Z = [Z; -Zn];
+    M = [M Mn];
+    A = [A; An+max(A)];%Add max number in A to An to avoid merging of clusters with identical IDs
 
+elseif isempty(N) & ~isempty(Nn) % No positive effects, only negative effects
+    N = Nn;
+    Z = -Zn;
+    M = Mn;
+    A = An;%Add max number in A to An to avoid merging of clusters with identical IDs
+end
+    
 %-get MNI coordinates for all clusters
 %--------------------------------------
 if ~isempty(M)
