@@ -44,7 +44,7 @@ function [cfg] = ca_vba_tfce_resultsTable(cfg,prefix,clustersize)
 voxthresh   = .1; % generally T-score, e.g. T=1.97 is equivalent to p-value =0.05
 npeaks      = 10; % maximum number of peaks 
 
-if nargin < 3
+if numel(nargin<3)
     clustersize =  10; % Default setting for cluster size in number of voxels
 end
 
