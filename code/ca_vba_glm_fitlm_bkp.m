@@ -64,12 +64,6 @@ try numPerm         = cfg.numPerm;          catch numPerm       = 1000; end % Nu
 try startPerm       = cfg.startPerm;        catch startPerm     = 1;    end % (Optional) pick a different starting position of the permuations
 try f_mask          = cfg.f_mask;           catch error('Error. \nPlease provide brain mask.'); end % Brain mask to limit analysis for voxels in the mask
 try Model           = cfg.model;            catch error('Error. \nPlease specify the model using Wilkinson notaions.'); end 
-try predefRandOrder = cfg.predefRandOrder;  catch predefRandOrder = []; end % (SLURM option) provde a predefined permuted order of DV 
-try whichRandOrder  = cfg.whichRandOrder;   catch whichRandOrder  = []; end % (SLURM option) specify which order to select from the permuted matrix
-
-% Set parforArg to inf (Default), assuming CA is run in matlab with parfor.
-% Otherwise set to 0 (see example with SLURM implementation below)
-parforArg = Inf;
 
 
 modeltype       = 'regression'; % 'one-sample' also possible if 'y~1'
@@ -150,6 +144,7 @@ end
 if doLogTrans
     Y = log(Y);
 end
+
 
 
 if doZscore
@@ -233,25 +228,17 @@ end
 
 %% ------------------------------------------------------------------------
 
-% If SLURM implemenation not required, i.e. predefRandOrder not provided, then
-% generate permuted versions using arrayfun (Add 10% extra for now)
+% Generate permuted versions using arrayfun (Add 10% extra for now)
 % Alternative to palm_quickperms
-if isempty(predefRandOrder)
-    permutedMatrix = arrayfun(@(x) randperm(numSub), 1:numPerm*1.1, 'UniformOutput', false);
-    permutedMatrix = cell2mat(permutedMatrix')';
-    % Remove columns that cointain the original order
-    idx = corr(permutedMatrix,[1:numSub]')==1;
-    permutedMatrix(:,idx)=[];
-    permutedMatrix(:,1) = [1:numSub]'; % Set first column to original order
-    % get the right size of pertmuted Matrix
-    randOrder = permutedMatrix(:,1:numPerm);
-else
-    % Specific randOrder provided. Likely for SLURM impmementation.
-    % So reset numPerm to 1 and parpool argument to 0
-    randOrder   = predefRandOrder(:,whichRandOrder);
-    numPerm     = 1;
-    parforArg   = 0;
-end
+permutedMatrix = arrayfun(@(x) randperm(numSub), 1:numPerm*1.1, 'UniformOutput', false);
+permutedMatrix = cell2mat(permutedMatrix')';
+% Remove columns that cointain the original order
+idx = corr(permutedMatrix,[1:numSub]')==1;
+permutedMatrix(:,idx)=[];
+permutedMatrix(:,1) = [1:numSub]'; % Set first column to original order
+% get the right size of pertmuted Matrix
+randOrder = permutedMatrix(:,1:numPerm);
+
 % randOrder   = palm_quickperms(numSub,[],numPerm);
 
 
@@ -265,10 +252,8 @@ cfg.outDir      = outDir;
 cfg.mlr         = mlr_temp;
 cfg.doZscore    = doZscore;
 cfg.doRobust    = doRobust;
-if isempty(whichRandOrder) || whichRandOrder==1
-    fout = fullfile(outDir,'analysis_cfg.mat');
-    save(fout,'cfg');
-end
+fout = fullfile(outDir,'analysis_cfg.mat');
+save(fout,'cfg');
 
 %-Permutations 
 %----------------
@@ -288,8 +273,7 @@ switch modeltype
 
             if doCommonality
                 % Loop through all voxels
-                parfor (iVox = 1:numVox, parforArg) 
-                % parfor iVox = 1:numVox
+                parfor iVox = 1:numVox
                     Yvox = squeeze(datY(:,iVox,:));
                     % Ensure all subjects have non-nan values
                     if sum(sum(isnan(Yvox)))==0
@@ -311,8 +295,7 @@ switch modeltype
             % Perform and save standard GLM analysis
             % ---------------------------------------
             else
-                parfor (iVox = 1:numVox, parforArg) 
-               % parfor iVox = 1:numVox
+               parfor iVox = 1:numVox
                     Yvox = squeeze(datY(:,iVox,:));
         %             Yvox = Yvox(tempOrder,:);
 
@@ -352,12 +335,8 @@ switch modeltype
                     % Save t-stats
                     outname         = regexprep(nameOutput{i},'f_','');
                     tdir            = fullfile(outDir,['tval_',outname]); 
-                    tmap(idxMask)   = tvals(:,i);
-                    if isempty(whichRandOrder)
-                        Vtemp.fname     = fullfile(tdir,sprintf('results_null_%.5d.nii',iperm));
-                    else % Suffix based on whichRandOrder indicating which column in predefRandOrder was used (e.g. in SLURM)
-                        Vtemp.fname     = fullfile(tdir,sprintf('results_null_%.5d.nii',whichRandOrder));
-                    end
+                    tmap(idxMask)   = tvals(:,i);  
+                    Vtemp.fname     = fullfile(tdir,sprintf('results_null_%.5d.nii',iperm));
                     spm_write_vol(Vtemp,tmap);
 
                     % Save beta coefficients (r-values if data was z-scoredd)

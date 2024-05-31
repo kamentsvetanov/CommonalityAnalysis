@@ -23,7 +23,10 @@
 % Script edit log (kat)
 % -----------------------------
 % 21/04/2022 - omit reporting covariates of no interest by prefixing with 'c_'
-%
+% 30/05/2024 - Efficient estimation of R2 for each submodel is computed by hand, not using fitlm.
+%              Fitlm could be useful if robust regression is needed. Thus,
+%              default is the fast implementation.
+
 % --------------------------------------------------------------
 % Required packages (https://github.com/kamentsvetanov/external)
 % --------------------------------------------------------------
@@ -194,55 +197,22 @@ parfor (iPerm = 1:numPerm, parforArg)
     end
 %     tempOrder = randOrder(:,iPerm);
     dataTemp  = dataMatrix;
-    dataTemp.(dv) = dataMatrix.(dv)(tempOrder);
+    dataTemp.(dv) = dataMatrix.(dv)(tempOrder); % Shuffle order of DV
     
     % -------------------------------------------------------------------------
     % Estimate All-Possible-Subsets (APS) Regression
     % Use the bitmap matrix to compute the R2 value for each combination of
     % independent variables.
     % -------------------------------------------------------------------------
-    
 %     APSMatrix = array2table(nan(numcc, 2),'RowNames',cellstr(Rownames),'VariableNames',{'k','R2'});
-    APSMatrix = nan(numcc,1);
-    for i = 1:numcc
-%         tic
-        mlrTemp  = fitlm(dataTemp,Model{i},'RobustOpts',doRobust);
-%         toc
-        APSMatrix(i)    = mlrTemp.Rsquared.Ordinary;
-%         APSMatrix{i, 'R2'} = mlrTemp.Rsquared.Ordinary;
-%         APSMatrix{i, 'k'} = sum(PredBitMap{:,i});
-        
-        %-(not implemented) Possibly a more efficient way to estimate Total variance explained by the
-        % model. Note that it does not work for interactions or squared
-        % terms defined in Wilkinson annotation. Instead these should be
-        % modelled by the user.
-        
-%         y = dataTemp.(dv);
-%         X = [ones(Ns,1) dataTemp{:,ModelPred{i}}];
-%         mu_y    = mean(y);
-%         if doRobust
-%             [betas stats]= robustfit(X,y,[],[],'off');
-%             ss_res  = sum(stats.resid.^2);
-%         else
-% %             [b,bint,r,rint,stats] = regress(dataTemp.(dv),dataTemp{:,ModelPred{i}});
-%             betas   = X\y; % add constant term to make identical to robust fit and fitlm
-%             ss_res  = sum((X*betas - y).^2);
-%         end
-%         ss_tot  = sum((y - mu_y).^2);
-%         R2      = 1 - ss_res/ss_tot;
-%         APSMatrix(i) = 1 - ss_res/ss_tot;
-%         tic
-%         y = dataTemp.(dv);
-%         X = dataTemp{:,ModelPred{i}};
-%         mu_y    = mean(y);
-%         betas   = x\y;
-%         ss_tot  = sum((y - mu_y).^2);
-%         ss_res  = sum((X*betas - y).^2);
-%         R2      = 1 - ss_res/ss_tot;
-%         toc
-        
-        
+    if doRobust == 1
+        APSMatrix = estimateAPSMatrix_mlr(dataTemp,Model,numcc,doRobust);    
+    else
+        y           = dataMatrix.(dv);
+        mu_y        = mean(y);
+        APSMatrix = estimateAPSMatrix_fast(dataTemp,ModelPred,numcc,Ns,y,mu_y);
     end
+
 
     % Reorder APSMartix accoring to apsBitMap
     % Store the R2 value based on an index that is computed by apsBitMap the IDs of the related IV.
@@ -292,7 +262,7 @@ R2       = abs(coeffPerm(:,1));
 r        = real(sqrt(R2));
 DF       = mlr.DFE;
 tR2      = r ./ sqrt((1-R2)./DF);
-pVal     = 1-spm_Tcdf(tR2,DF);
+pVal     = (1-spm_Tcdf(tR2,DF))*2; % multiply by 2 for two-sided?
 
 % tsquared = DF.*(R2) ./ (1 - R2);
 % tsquared = DF.*(r) ./ (1 - r);
@@ -359,6 +329,7 @@ end
 idxRemove = contains(commonalityMatrix.Properties.RowNames,'c_');
 commonalityMatrix(idxRemove,:) = [];
 
+%%
 function [newlist] = commonality_genlist(ivlist,value)
 
 numlist = length(ivlist);
@@ -369,4 +340,63 @@ for i = 1:numlist
     if (((ivlist(i) < 0) && (value >= 0)) || ((ivlist(i) >=  0) && (value < 0))) 
         newlist(i) = newlist(i) * -1;
     end
+end
+
+%%
+
+function APSMatrix = estimateAPSMatrix_mlr(dataTemp,Model,numcc,doRobust);
+
+APSMatrix = nan(numcc,1);
+for i = 1:numcc
+%         tic
+    mlrTemp  = fitlm(dataTemp,Model{i},'RobustOpts',doRobust);
+%         toc
+    APSMatrix(i)    = mlrTemp.Rsquared.Ordinary;
+%         APSMatrix{i, 'R2'} = mlrTemp.Rsquared.Ordinary;
+%         APSMatrix{i, 'k'} = sum(PredBitMap{:,i});
+    
+    %-(not implemented) Possibly a more efficient way to estimate Total variance explained by the
+    % model. Note that it does not work for interactions or squared
+    % terms defined in Wilkinson annotation. Instead these should be
+    % modelled by the user.
+    
+%         y = dataTemp.(dv);
+%         X = [ones(Ns,1) dataTemp{:,ModelPred{i}}];
+%         mu_y    = mean(y);
+%         if doRobust
+%             [betas stats]= robustfit(X,y,[],[],'off');
+%             ss_res  = sum(stats.resid.^2);
+%         else
+% %             [b,bint,r,rint,stats] = regress(dataTemp.(dv),dataTemp{:,ModelPred{i}});
+%             betas   = X\y; % add constant term to make identical to robust fit and fitlm
+%             ss_res  = sum((X*betas - y).^2);
+%         end
+%         ss_tot  = sum((y - mu_y).^2);
+%         R2      = 1 - ss_res/ss_tot;
+%         APSMatrix(i) = 1 - ss_res/ss_tot;
+%         tic
+%         y = dataTemp.(dv);
+%         X = dataTemp{:,ModelPred{i}};
+%         mu_y    = mean(y);
+%         betas   = x\y;
+%         ss_tot  = sum((y - mu_y).^2);
+%         ss_res  = sum((X*betas - y).^2);
+%         R2      = 1 - ss_res/ss_tot;
+%         toc
+    
+    
+end
+
+%%
+
+function  APSMatrix = estimateAPSMatrix_fast(dataTemp,ModelPred,numcc,Ns,y,mu_y)
+
+APSMatrix = nan(numcc,1);
+for i = 1:numcc
+    % Calculate R2 by hand
+    X = [ones(Ns,1) dataTemp{:,ModelPred{i}}];
+    betas   = X\y;
+    ss_tot  = sum((y - mu_y).^2);
+    ss_res  = sum((X*betas - y).^2);
+    APSMatrix(i) = 1 - ss_res/ss_tot;
 end
