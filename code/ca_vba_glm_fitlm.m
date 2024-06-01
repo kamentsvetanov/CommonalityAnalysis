@@ -100,11 +100,26 @@ if any(idx1)
 end
     
 
+% -------------------------------------------------------------------------
+% Check for covariate variables (starting with 'c_' in equation) whether
+% they have defined with the prefix 'c_' in T table
+% -------------------------------------------------------------------------
+idxCovariate  = contains(VarNames,'c_'); 
+nameCovariate = VarNames(idxCovariate);
+VarNamesTable = T.Properties.VariableNames;
+for ivar = 1:numel(nameCovariate)
+    namecov = nameCovariate{ivar};
+    namecovNoprefix = namecov(3:end);
+    if ~any(ismember(VarNamesTable,namecov)) && any(ismember(VarNamesTable,namecovNoprefix))
+        T.(namecov) = T.(namecovNoprefix);
+    end
+end
+
 %-------------------------------------
 % Identify subjects with missing data
 % -----------------------------------
-idxSub   = all(~ismissing(T(:,VarNames)),2);
-tbl = T(idxSub,VarNames);
+idxSub = all(~ismissing(T(:,VarNames)),2);
+tbl    = T(idxSub,VarNames);
 
 %----------------------------
 % Import and apply Brain mask 
@@ -280,7 +295,6 @@ switch modeltype
     case 'regression'
         
         for iperm = startPerm:numPerm
-%             iperm
 
             tempOrder   = randOrder(:,iperm);
             datY        = Y;
@@ -288,7 +302,8 @@ switch modeltype
 
             if doCommonality
                 % Loop through all voxels
-                parfor (iVox = 1:numVox, parforArg) 
+                % parfor (iVox = 1:numVox, parforArg) 
+                for iVox=1:numVox
                 % parfor iVox = 1:numVox
                     Yvox = squeeze(datY(:,iVox,:));
                     % Ensure all subjects have non-nan values

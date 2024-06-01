@@ -108,6 +108,8 @@ N = ca_vba_tfce_extractROI(cfg1,T);
 % -------------------------------------------------
 numSub          = size(T,1);
 numPerm         = 1000;
+numSub          = 20;
+numPerm         = 100;
 permutedMatrix  = arrayfun(@(x) randperm(numSub), 1:numPerm*1.1, 'UniformOutput', false);
 permutedMatrix  = cell2mat(permutedMatrix')';
 % Remove columns that cointain the original order

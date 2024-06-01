@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -A MYACCOUNT-CHANGEME
-#SBATCH -p skylake
+#SBATCH -p skylake-himem
 #SBATCH -N 1
 #SBATCH -n 1
 #SBATCH -t 00:01:00
@@ -10,8 +10,5 @@
 
 module purge
 module load rhel7/default-peta4 matlab
-
-nsub=20
-nperm=1000
 
 matlab -nodisplay -r "example('output_file'); quit"

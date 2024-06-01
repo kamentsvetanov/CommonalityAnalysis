@@ -1,15 +1,15 @@
-function ca_demo_vba_slurm(predefRandOrder,whichRandOrder)
+function ca_demo_vba_slurm(f_permMatrix,column_index)
 % Code showing the use of Voxel-based Analysis (VBA) with fitlm and 
 % commonality function using SLURM. 
 % Call this script with input variables using other environment (e.g. bash)
-%  - predefRandOrder - predefined permuted matrix (sub x perm) for a set of 
+%  - f_permMatrix - txt file with predefined permuted matrix (sub x perm) for a set of 
 %                      subjects and a number of permutations. First column
 %                      should include original order (i.e. 1:num sub)
-%  - whichRandOrder - indicating which RandOrder column to run on a worker.
+%  - column_index - indicating which RandOrder column to run on a worker.
 %
 % Running the analysis requires two variables in the workspace, T and
 % Model, similar to the usage of 'fitlm'
-% 
+%
 %% T       - 
 %  Table containing all variables specified in Model (see below).
 %
@@ -52,6 +52,7 @@ rootdir = fileparts(fileparts(which('ca_demo_vba.m')));
 datadir = [rootdir '/data/rsfa'];
 load(fullfile(datadir,'subject_info.mat'));
 
+permMatrix = readmatrix(f_permMatrix);
 
 T.f_rsfa = regexprep(T.f_rsfa,'/home/kt03/Projects/public-code/CommonalityAnalysis',rootdir);
 Model = 'f_rsfa ~ Age + c_Sex';
@@ -65,6 +66,6 @@ cfg.model           = Model;
 cfg.rootDir         = '/imaging/camcan/sandbox/kt03/temp/'; 
 cfg.f_mask          = fullfile(datadir,'mask.nii');
 cfg.doCommonality   = 1;
-cfg.predefRandOrder = predefRandOrder;
-cfg.whichRandOrder  = whichRandOrder;
+cfg.predefRandOrder = permMatrix;
+cfg.whichRandOrder  = column_index;
 cfg                 = ca_vba_glm_fitlm(T,cfg);
