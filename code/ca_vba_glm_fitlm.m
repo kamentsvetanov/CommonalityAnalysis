@@ -30,7 +30,15 @@ function [cfg,outDir] = ca_vba_glm_fitlm(T,cfg)
 % Tsvetanov et al 2020 Psyhophysiology (https://doi.org/10.1111/psyp.13714)
 % and
 % Wu et al 2021 (https://www.biorxiv.org/content/10.1101/2021.11.10.468042v1)
-%
+% 
+% Notes:
+% Commonality Analysis:
+% - voxel-based analysis (involving thousands of voxels) is slow useing
+%   'fitlm'. A more efficient version is implemented when non-robust glm is
+%   acceptable. Note that this approach, unlike fitlm, works only with
+%   continuous variables i.e. any categorical variable needs to be used as
+%   continous (e.g. use grp2idx). Categorical variables can be excluded
+%   from the output by naming it with 'c_' prefix. 
 % Other m-files required: none
 % Subfunctions: none
 % MAT-files required: none
@@ -66,6 +74,7 @@ try f_mask          = cfg.f_mask;           catch error('Error. \nPlease provide
 try Model           = cfg.model;            catch error('Error. \nPlease specify the model using Wilkinson notaions.'); end 
 try predefRandOrder = cfg.predefRandOrder;  catch predefRandOrder = []; end % (SLURM option) provde a predefined permuted order of DV 
 try whichRandOrder  = cfg.whichRandOrder;   catch whichRandOrder  = []; end % (SLURM option) specify which order to select from the permuted matrix
+try specificSeed    = cfg.specificSeed;     catch specificSeed    = []; end % (SLURM option) provide specificSeed to reproduce permuted Matrix across workers/nodes
 
 % Set parforArg to inf (Default), assuming CA is run in matlab with parfor.
 % Otherwise set to 0 (see example with SLURM implementation below)
@@ -182,7 +191,7 @@ tbl = Temp;
 
 mlr_temp     = fitlm(tbl,Model);
 nameCoef     = mlr_temp.CoefficientNames;
-numCoef      = numel(nameCoef);
+
 
 % Clean up workspace to imporve parpool performance
 clear T X X3D Xvec Y3D Yvec; 
@@ -213,13 +222,15 @@ if doCommonality
     numCoef     = numVarCA;
 else
     outDir = fullfile(rootDir,['glm_' strModel]);
+    % %--------------------------------------------------------------------
+    % % Remove coefficients prefixed by 'c_', i.e. remove covariates of no
+    % % interest (THis is dealt with in ca_stats_commonality too
+    % %--------------------------------------------------------------------
+    % nameCoef(startsWith(nameCoef,'c_'))=[];
+    numCoef      = numel(nameCoef);
 end
 
-%--------------------------------------------------------------------
-% Remove coefficients prefixed by 'c_', i.e. remove covariates of no
-% interest
-%--------------------------------------------------------------------
-nameCoef(startsWith(nameCoef,'c_'))=[];
+
 
 % -----------------
 % Make folders
@@ -247,44 +258,51 @@ end
 
 
 %% ------------------------------------------------------------------------
+% If SLURM implemenation is required, i.e. predefinedSeed and whichOrder 
+% provided, then generate set the seed so that thepermuted version 
+% using arrayfun (Add 10% extra for now) are identical across workers
 
-% If SLURM implemenation not required, i.e. predefRandOrder not provided, then
-% generate permuted versions using arrayfun (Add 10% extra for now)
+if ~isempty(specificSeed)
+    rng(specificSeed)
+end
+
 % Alternative to palm_quickperms
-if isempty(predefRandOrder)
-    permutedMatrix = arrayfun(@(x) randperm(numSub), 1:numPerm*1.1, 'UniformOutput', false);
-    permutedMatrix = cell2mat(permutedMatrix')';
-    % Remove columns that cointain the original order
-    idx = corr(permutedMatrix,[1:numSub]')==1;
-    permutedMatrix(:,idx)=[];
-    permutedMatrix(:,1) = [1:numSub]'; % Set first column to original order
-    % get the right size of pertmuted Matrix
-    randOrder = permutedMatrix(:,1:numPerm);
-else
+permutedMatrix = arrayfun(@(x) randperm(numSub), 1:numPerm*1.1, 'UniformOutput', false);
+permutedMatrix = cell2mat(permutedMatrix')';
+% Remove columns that cointain the original order
+idx = corr(permutedMatrix,[1:numSub]')==1;
+permutedMatrix(:,idx)=[];
+permutedMatrix(:,1) = [1:numSub]'; % Set first column to original order
+% get the right size of pertmuted Matrix
+randOrder = permutedMatrix(:,1:numPerm);
+randOrderAll = randOrder;
+% randOrder   = palm_quickperms(numSub,[],numPerm);
+
+if ~isempty(whichRandOrder)
     % Specific randOrder provided. Likely for SLURM impmementation.
     % So reset numPerm to 1 and parpool argument to 0
-    randOrder   = predefRandOrder(:,whichRandOrder);
+    randOrder   = randOrder(:,whichRandOrder);
     numPerm     = 1;
     parforArg   = 0;
 end
-% randOrder   = palm_quickperms(numSub,[],numPerm);
-
-
 
 
 %-Assemble and save output structure
 % ----------------------------------
 cfg.tbl         = tbl;
 cfg.randOrder   = randOrder;
+cfg.randOrderAll= randOrderAll;
 cfg.outDir      = outDir;
 cfg.mlr         = mlr_temp;
 cfg.doZscore    = doZscore;
 cfg.doRobust    = doRobust;
-if isempty(whichRandOrder) || whichRandOrder==1
+%if isempty(whichRandOrder) || whichRandOrder==1
+if isempty(whichRandOrder)
     fout = fullfile(outDir,'analysis_cfg.mat');
-    save(fout,'cfg');
+else
+    fout = fullfile(outDir,sprintf('analysis_cfg_%05d.mat',whichRandOrder));
 end
-
+save(fout,'cfg');
 %-Permutations 
 %----------------
 switch modeltype
@@ -326,8 +344,8 @@ switch modeltype
             % Perform and save standard GLM analysis
             % ---------------------------------------
             else
-                parfor (iVox = 1:numVox, parforArg) 
-               % parfor iVox = 1:numVox
+                % parfor (iVox = 1:numVox, parforArg) 
+               for iVox = 1:numVox
                     Yvox = squeeze(datY(:,iVox,:));
         %             Yvox = Yvox(tempOrder,:);
 

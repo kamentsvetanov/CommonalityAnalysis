@@ -186,8 +186,8 @@ APSr2     = nan(numcc,numPerm);
 % [~,orderApsBitMap]          = sort(apsBitMap);
 % apsBitMap(orderApsBitMap)   = 1:numel(apsBitMap); % remap apsBitMap after removing entries for Covariates
 
-parfor (iPerm = 1:numPerm, parforArg) 
-% for iPerm = 1:numPerm % Permutation of subject labels. First iteration uses the correct labels
+% parfor (iPerm = 1:numPerm, parforArg) 
+for iPerm = 1:numPerm % Permutation of subject labels. First iteration uses the correct labels
     
     % First iteration uses the correct labels
     if iPerm == 1
@@ -206,7 +206,8 @@ parfor (iPerm = 1:numPerm, parforArg)
     % -------------------------------------------------------------------------
 %     APSMatrix = array2table(nan(numcc, 2),'RowNames',cellstr(Rownames),'VariableNames',{'k','R2'});
     if doRobust == 1
-        APSMatrix = estimateAPSMatrix_mlr(dataTemp,Model,numcc,doRobust);    
+        robustOpts = 'Huber';
+        APSMatrix = estimateAPSMatrix_mlr(dataTemp,Model,numcc,robustOpts);    
     else
         y           = dataMatrix.(dv);
         mu_y        = mean(y);
