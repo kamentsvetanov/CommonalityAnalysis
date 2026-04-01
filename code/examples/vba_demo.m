@@ -42,12 +42,12 @@
 
 clear 
 % Ensure CommonalityAnalysis is in Matlab's path
-rootdir = fileparts(fileparts(which('ca_demo_vba.m')));
+rootdir = regexp(which('vba_demo.m'), '.*CommonalityAnalysis', 'match', 'once');
 datadir = [rootdir '/data/rsfa'];
 load(fullfile(datadir,'subject_info.mat'));
 
-
-T.f_rsfa = regexprep(T.f_rsfa,'/home/kt03/Projects/public-code/CommonalityAnalysis',rootdir);
+% Update rsfa filepaths with the local environemnt
+T.f_rsfa = regexprep(T.f_rsfa,'/home/kt03/Projects/public-code/CommonalityAnalysis/data/rsfa',datadir);
 Model = 'f_rsfa ~ Age + c_Sex';
 
 % -------------------------------------------------
@@ -55,11 +55,11 @@ Model = 'f_rsfa ~ Age + c_Sex';
 % -------------------------------------------------
 cfg                 = [];
 cfg.model           = Model;
-cfg.rootDir         = '/imaging/camcan/sandbox/kt03/temp/'; 
+cfg.rootDir         = '/rds/user/kat35/hpc-work/temp'; 
 cfg.f_mask          = fullfile(datadir,'mask.nii');
-cfg.numPerm         = 100;
-cfg.doCommonality   = 1;
-cfg                 = ca_vba_glm_fitlm(T,cfg);
+cfg.numPerm         = 1;
+cfg.doCommonality   = 0;
+cfg                 = vba_run(T,cfg);
 
 
 % ---------------------------
@@ -70,14 +70,15 @@ cfg.tfce.typeStats  = 'tval';
 cfg.tfce.Ns         = size(cfg.tbl,1);
 cfg.tfce.Np         = size(cfg.tbl,2)-1;
 cfg.tfce.th         = 1.5;
-cfg                 = ca_vba_tfce_threshold(cfg);
+cfg.tfce.doRunInSerial = 1;
+cfg                 = vba_tfce_threshold(cfg);
 
 %% ------------------------------------------------------------------------
 % Extract information for significant TFCE clusters in a results Table 
 % -------------------------------------------------------------------------
 prefix      = 'tfce150';
 clustersize = 8;
-cfg         = ca_vba_tfce_resultsTable(cfg,prefix,clustersize);
+cfg         = vba_tfce_resultsTable(cfg,prefix,clustersize);
 fout        = fullfile(cfg.outDir,sprintf('resultsTable_%s.xlsx',prefix));
 writetable(cfg.tfce.tableConcat,fout);
 save(regexprep(fout,'xlsx','mat'),'cfg','T');
@@ -96,36 +97,5 @@ end
 cfg1         = cfg;
 cfg1.conName = {'Age'};% {'Age','Sex'} % Select contrast of interest
 cfg1.doMask  = 1; % whether or not to save masks of the clusters
-N = ca_vba_tfce_extractROI(cfg1,T);
+N = vba_tfce_extractROI(cfg1,T);
     
-    
-
-%% SLURM implementation
-
-
-% -------------------------------------------------
-% Assemble cfg structure needed to run the analysis
-% -------------------------------------------------
-numSub          = size(T,1);
-numPerm         = 1000;
-numSub          = 20;
-numPerm         = 100;
-permutedMatrix  = arrayfun(@(x) randperm(numSub), 1:numPerm*1.1, 'UniformOutput', false);
-permutedMatrix  = cell2mat(permutedMatrix')';
-% Remove columns that cointain the original order
-idx = corr(permutedMatrix,[1:numSub]')==1;
-permutedMatrix(:,idx)=[];
-permutedMatrix(:,1) = [1:numSub]'; % Set first column to original order
-% get the right size of pertmuted Matrix
-randOrder = permutedMatrix(:,1:numPerm);
-
-
-cfg                 = [];
-cfg.model           = Model;
-cfg.rootDir         = '/imaging/camcan/sandbox/kt03/temp/'; 
-cfg.f_mask          = fullfile(datadir,'mask.nii');
-cfg.numPerm         = 100;
-cfg.doCommonality   = 1;
-cfg.predefRandOrder = randOrder;
-cfg.whichRandOrder  = 5;
-cfg                 = ca_vba_glm_fitlm(T,cfg);

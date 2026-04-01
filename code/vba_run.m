@@ -1,4 +1,4 @@
-function [cfg,outDir] = ca_vba_glm_fitlm(T,cfg) 
+function [cfg,outDir] = vba_run(T,cfg) 
 %
 % A function for group-level multi-modal voxel-wise brain image analysis.
 % Running the analysis requires two variables in the workspace, T and
@@ -68,10 +68,12 @@ try doZscore        = cfg.doZscore;         catch doZscore      = 1;    end % Wh
 try doLogTrans      = cfg.doLogTrans;       catch doLogTrans    = 0;    end % Whether or not to log-transform neuroimaging data
 try doCommonality   = cfg.doCommonality;    catch doCommonality = 0;    end % Whehter or not to run commonality analysis (Default, 0)
 try doRobust        = cfg.doRobust;         catch doRobust      = 0;    end % Whether or not to run robust regression (Default, 0)
+try doRunInSerial   = cfg.doRunInSerial;    catch doRunInSerial = 0;    end % whether or not to run in Parallel mode
 try numPerm         = cfg.numPerm;          catch numPerm       = 1000; end % Number of permuations
 try startPerm       = cfg.startPerm;        catch startPerm     = 1;    end % (Optional) pick a different starting position of the permuations
 try f_mask          = cfg.f_mask;           catch error('Error. \nPlease provide brain mask.'); end % Brain mask to limit analysis for voxels in the mask
 try Model           = cfg.model;            catch error('Error. \nPlease specify the model using Wilkinson notaions.'); end 
+try doSlurm         = cfg.doSlurm;          catch doSlurm         = 0;  end % (SLURM option)
 try predefRandOrder = cfg.predefRandOrder;  catch predefRandOrder = []; end % (SLURM option) provde a predefined permuted order of DV 
 try whichRandOrder  = cfg.whichRandOrder;   catch whichRandOrder  = []; end % (SLURM option) specify which order to select from the permuted matrix
 try specificSeed    = cfg.specificSeed;     catch specificSeed    = []; end % (SLURM option) provide specificSeed to reproduce permuted Matrix across workers/nodes
@@ -79,6 +81,9 @@ try specificSeed    = cfg.specificSeed;     catch specificSeed    = []; end % (S
 % Set parforArg to inf (Default), assuming CA is run in matlab with parfor.
 % Otherwise set to 0 (see example with SLURM implementation below)
 parforArg = Inf;
+if doRunInSerial % Flag Paraller processing
+    parforArg = 0;
+end
 
 
 modeltype       = 'regression'; % 'one-sample' also possible if 'y~1'
@@ -89,7 +94,7 @@ idxCategorical  = vartype('categorical');
 % -------------------------
 % Get Variable names
 % -------------------------
-VarNames = strtrim(split(Model,["~","*","+","^2"]));
+VarNames = strtrim(split(Model,["~","*","+","^2",":"]));
 VarNames(cellfun(@isempty,VarNames)) = [];
 % tblTemp = array2table(rand(1000,numel(VarNames)),'VariableNames',VarNames);
 % mlrTemp = fitlm(tblTemp,Model);
@@ -129,6 +134,7 @@ end
 % -----------------------------------
 idxSub = all(~ismissing(T(:,VarNames)),2);
 tbl    = T(idxSub,VarNames);
+tbl    = T(idxSub,:);
 
 %----------------------------
 % Import and apply Brain mask 
@@ -175,6 +181,7 @@ if doLogTrans
     Y = log(Y);
 end
 
+TBL  = tbl;
 
 if doZscore
     tbl(:,idxNumeric) = normalize(tbl(:,idxNumeric));
@@ -185,16 +192,16 @@ end
 % Prepare the table for fitlm with one voxel for dependent and predictor
 % maps and set a template to extract data after parpool
 % ------------------------------------------------------------------------
+
 Temp = tbl(:,VarNamesGlobal);
 Temp{:,VarNamesMaps} = squeeze(Y(:,ceil(numVox/2),:)); %If may crash if the selected voxel has NaN or other issues.Could replace with random variable having same lenght
 tbl = Temp;
-
 mlr_temp     = fitlm(tbl,Model);
 nameCoef     = mlr_temp.CoefficientNames;
 
 
 % Clean up workspace to imporve parpool performance
-clear T X X3D Xvec Y3D Yvec; 
+clear T X X3D Xvec Y3D Temp Yvec; 
 
 %% make output folders for each  permutation
 
@@ -214,7 +221,7 @@ if doCommonality
     outDir      = fullfile(rootDir,['ca_' strModel]);
     cfg.mlr     = mlr_temp;
     cfg.doPerm  = 0;
-    CA_temp     = ca_stats_commonality(cfg);
+    CA_temp     = vba_stats_commonality(cfg);
     nameVarCA   = CA_temp.Properties.RowNames;
     nameVarCA   = regexprep(nameVarCA,',','');
     numVarCA    = numel(nameVarCA);    
@@ -224,7 +231,7 @@ else
     outDir = fullfile(rootDir,['glm_' strModel]);
     % %--------------------------------------------------------------------
     % % Remove coefficients prefixed by 'c_', i.e. remove covariates of no
-    % % interest (THis is dealt with in ca_stats_commonality too
+    % % interest (THis is dealt with in vba_stats_commonality too
     % %--------------------------------------------------------------------
     % nameCoef(startsWith(nameCoef,'c_'))=[];
     numCoef      = numel(nameCoef);
@@ -259,12 +266,13 @@ end
 
 %% ------------------------------------------------------------------------
 % If SLURM implemenation is required, i.e. predefinedSeed and whichOrder 
-% provided, then generate set the seed so that thepermuted version 
+% provided, then generate set the seed so that the permuted version 
 % using arrayfun (Add 10% extra for now) are identical across workers
 
 if ~isempty(specificSeed)
     rng(specificSeed)
 end
+
 
 % Alternative to palm_quickperms
 permutedMatrix = arrayfun(@(x) randperm(numSub), 1:numPerm*1.1, 'UniformOutput', false);
@@ -278,6 +286,7 @@ randOrder = permutedMatrix(:,1:numPerm);
 randOrderAll = randOrder;
 % randOrder   = palm_quickperms(numSub,[],numPerm);
 
+
 if ~isempty(whichRandOrder)
     % Specific randOrder provided. Likely for SLURM impmementation.
     % So reset numPerm to 1 and parpool argument to 0
@@ -289,26 +298,33 @@ end
 
 %-Assemble and save output structure
 % ----------------------------------
-cfg.tbl         = tbl;
+cfg.tbl         = TBL;
 cfg.randOrder   = randOrder;
 cfg.randOrderAll= randOrderAll;
 cfg.outDir      = outDir;
 cfg.mlr         = mlr_temp;
 cfg.doZscore    = doZscore;
 cfg.doRobust    = doRobust;
+
+
+fout = fullfile(outDir,'analysis_cfg.mat');
+
 %if isempty(whichRandOrder) || whichRandOrder==1
-if isempty(whichRandOrder)
-    fout = fullfile(outDir,'analysis_cfg.mat');
-else
-    fout = fullfile(outDir,sprintf('analysis_cfg_%05d.mat',whichRandOrder));
+% if isempty(whichRandOrder)
+    % fout = fullfile(outDir,'analysis_cfg.mat');
+% else
+%     fout = fullfile(outDir,sprintf('analysis_cfg_%05d.mat',whichRandOrder));
+% end
+if ~exist(fout,"file") % Check if file has already been generated, e.g. as in SLURM execution
+    save(fout,'cfg');
 end
-save(fout,'cfg');
+
 %-Permutations 
 %----------------
 switch modeltype
     case 'one-sample' % INCOMPLETE. Estimate Main/Average/Group effect using one-sample t-test
         cfg_temp = cfg;
-        ca_vba_util_onesample(cfg_temp);
+        vba_util_maineffect(cfg_temp);
        
     case 'regression'
         
@@ -320,8 +336,8 @@ switch modeltype
 
             if doCommonality
                 % Loop through all voxels
-                % parfor (iVox = 1:numVox, parforArg) 
-                for iVox=1:numVox
+                parfor (iVox = 1:numVox, parforArg) 
+                % for iVox=1:numVox
                 % parfor iVox = 1:numVox
                     Yvox = squeeze(datY(:,iVox,:));
                     % Ensure all subjects have non-nan values
@@ -334,7 +350,7 @@ switch modeltype
                         mlr             = fitlm(tbl_temp,Model,'RobustOpts',doRobust);
                         cfgtemp         = cfg; 
                         cfgtemp.mlr     = mlr;
-                        CA              = ca_stats_commonality(cfgtemp);
+                        CA              = vba_stats_commonality(cfgtemp);
                         tvals(iVox,:)   = CA{:,'tVal'};
         %                 bvals(iVox,:)   = CA{:,'Coefficient'};
                     end           

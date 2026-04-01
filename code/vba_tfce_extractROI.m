@@ -1,17 +1,17 @@
-function [N] = ca_vba_tfce_extractROI(cfg,T)
+function [N] = vba_tfce_extractROI(cfg)
 % Extract Cluster values for each participant and brainmap type for a given
 % coordinate as specified in TFCE results table
 %
 % Inputs:
 % ----------
-% cfg         - cfg variable with varios fields defined in ca_vba_tfce_resultsTable. 
+% cfg         - cfg variable with varios fields defined in vba_tfce_resultsTable. 
 %
 % cfg.doMasks - Save masks for each cluster (Optional, Default - no save)
 %
 % cfg.conName - Contrast names of interest used to define Clusters
-%               (optional)
+%               (optional). If not provided data extracted for all clusters
 %
-% T           - Subject-specific T table
+% cfg.tbl     - Subject-specific T table
 %
 % Outputs:
 % -----------
@@ -31,6 +31,7 @@ function [N] = ca_vba_tfce_extractROI(cfg,T)
 
 try doMasks = cfg.doMasks; catch doMasks = 0; end
 try contr   = cfg.conName; catch contr   = {}; end
+try T       = cfg.tbl;     catch error('Error. \nPlease provide subject specific information.'); end %
 
 % Make a new table across all coefficients and clusters
 % -----------------------------------------------------
@@ -84,6 +85,6 @@ for imap = 1:numel(varnameMaps)
         roi.doSaveMask  = 0;
     end
 
-    tblNode = ca_vba_util_extractROI(roi);
+    tblNode = vba_util_extractROI(roi);
     N       = [N tblNode];
 end

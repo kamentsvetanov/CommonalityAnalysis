@@ -1,4 +1,4 @@
-function [tfced] = ca_matlab_tfce_transform(img,H,E,C,dh,threshold)
+function [tfced] = vba_matlab_tfce_transform(img,H,E,C,dh,threshold)
 % Modified matlab_tfce_transform.m to enable user defined threshold,.e.g.
 % if using t-stats could set the threshold at 1.97 (equivalent to p-value
 % 0.05, two-sided)

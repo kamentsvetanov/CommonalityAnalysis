@@ -1,4 +1,4 @@
-function [resultTbl] = ca_vba_get_cluster_maxima(fname,fname_pval, voxthresh, clustersize, npeaks)
+function [resultTbl] = vba_get_cluster_maxima(fname,fname_pval, voxthresh, clustersize, npeaks)
 %function [resTbl] = get_cluster_maxima(map, voxthresh, sizethresh, npeaks)
 % Returns table with up to npeaks maxima for clusters retrieved from map
 % and defined by voxthresh and sizethresh.

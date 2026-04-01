@@ -1,4 +1,4 @@
- function [commonalityMatrix] = ca_stats_commonality(cfg)
+ function [commonalityMatrix] = vba_stats_commonality(cfg)
 % Function performing Commonality Analysis, which partitions R2 explained
 % by all predictors in multiple linear regression into variance unique to
 % each predictor and variance shared between each combination of predictors

@@ -6,7 +6,7 @@
 
 clear 
 % Ensure CommonalityAnalysis is in Matlab's path
-rootdir = fileparts(fileparts(which('ca_demo_vba.m')));
+rootdir = fileparts(fileparts(which('commonality_demo.m')));
 dat = readtable([rootdir '/data/hsdata.csv']);
 
 nameDV  = 'paragrap';
@@ -23,11 +23,11 @@ mlr = fitlm(DAT,model);
 
 % Run Commonality Analysis using fitlm output
 tic
-CA = ca_stats_commonality(mlr);
+CA = vba_stats_commonality(mlr);
 toc
 
 tic
-CA1 = ca_stats_commonality(mlr);
+CA1 = vba_stats_commonality(mlr);
 toc
 
 % Run Commonality Analysis using Permutations
@@ -37,7 +37,7 @@ cfg.doPerm      = 1;
 cfg.numPerm     = 1000;
 cfg.runParfor   = 0;
 tic
-CA1 = ca_stats_commonality(cfg);
+CA1 = vba_stats_commonality(cfg);
 toc
 
 % Run Commonality Analysis using Permutations nad Robust regression
@@ -48,6 +48,6 @@ cfg.numPerm     = 100;
 cfg.runParfor   = 0;
 cfg.doRobust    = 1;
 tic
-CA1 = ca_stats_commonality(cfg);
+CA1 = vba_stats_commonality(cfg);
 toc
 

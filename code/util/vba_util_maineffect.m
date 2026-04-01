@@ -1,4 +1,4 @@
-function ca_vba_util_onesample(cfg)
+function vba_util_maineffect(cfg)
 % Untily function in Commonality toolbox to compute main/average effect
 % using one-sample test to estimation
 % % One-sample T permutation (flip signs not re-label conditions)

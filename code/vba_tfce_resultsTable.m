@@ -1,16 +1,16 @@
-function [cfg] = ca_vba_tfce_resultsTable(cfg,prefix,clustersize)
+function [cfg] = vba_tfce_resultsTable(cfg,prefix,clustersize)
 % Post-process TFCE result maps to generate results table, similar to SPM
 % Results tables
 % 
 % Usage:
-% [cfg] = ca_vba_tfce_resultsTable(cfg,prefix)
+% [cfg] = vba_tfce_resultsTable(cfg,prefix)
 % 
 % 
 % Inputs:
-%   cfg   - cfg variable with varios fields define in ca_vba_glm_fitlm.m and 
-%           ca_vba_tfce_threshold.m. 
+%   cfg   - cfg variable with varios fields define in vba_glm_fitlm.m and 
+%           vba_tfce_threshold.m. 
 %   prefix- string defining the naming pattern used to select statistical
-%           maps of clusters surviving TFCE, i.e. outputs from ca_vba_tfce_threshold.m
+%           maps of clusters surviving TFCE, i.e. outputs from vba_tfce_threshold.m
 %           These are likely to be 'tfce***', where *** was the
 %           defined threshold level. Note that 'prefix' is further defined
 %           by adding type of statistics used for TFCE below.
@@ -57,16 +57,18 @@ try prefix = cfg.prefix; catch prefix = ['tfce' num2str(cfg.tfce.th*100)]; end %
 %-Select files based on type of statistics used for tfce
 %-------------------------------------------------------
 prefix  = [prefix '_' typeStats '_'];
-fn   = ca_rdir(fullfile(cfg.outDir,[prefix '*']));fn = {fn.name}';
+fn   = vba_rdir(fullfile(cfg.outDir,[prefix '*']));fn = {fn.name}';
 
 
 
 %-Node information using AAL
 %---------------------------
-Vaal = spm_vol('/imaging/camcan/sandbox/kt03/projects/external/mat/peak_nii/aal_MNI_V4.img'); 
+fn1=which('aal_MNI_V4.img');
+Vaal = spm_vol(fn1); 
 Yaal = spm_read_vols(Vaal);
 aalInv = inv(Vaal(1).mat);
-Naal = load('/imaging/camcan/sandbox/kt03/projects/external/mat/peak_nii/aal_MNI_V4_List.mat');
+fn1=which('aal_MNI_V4_List.mat');
+Naal = load(fn1);
 Naal = Naal.ROI;
 D    = 8; % size of ROI to draw around peak 
 
@@ -91,7 +93,7 @@ for icoef = 1:numel(fn)
     fname_pval = regexprep(fname,typeStats,'pval'); % Select pval maps
 
     
-    [resultTbl] = ca_vba_get_cluster_maxima(fname,fname_pval, voxthresh, clustersize, npeaks);
+    [resultTbl] = vba_get_cluster_maxima(fname,fname_pval, voxthresh, clustersize, npeaks);
     
     %-Get inverse transform:
     %-----------------------

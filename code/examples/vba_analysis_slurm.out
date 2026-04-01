@@ -1,0 +1,3650 @@
+Number of permutations: 200
+Model:                  f_rsfa ~ age + c_sex
+Number of permutations: 200
+Model:                  f_rsfa ~ age + c_sex
+Number of permutations: 200
+Number of permutations: 200
+Model:                  f_rsfa ~ age + c_sex
+Model:                  f_rsfa ~ age + c_sex
+Number of permutations: 200
+Model:                  f_rsfa ~ age + c_sex
+Number of permutations: 200
+Model:                  f_rsfa ~ age + c_sex
+Number of permutations: 200
+Model:                  f_rsfa ~ age + c_sex
+Number of permutations: 200
+Model:                  f_rsfa ~ age + c_sex
+Number of permutations: 200
+Model:                  f_rsfa ~ age + c_sex
+Number of permutations: 200
+Model:                  f_rsfa ~ age + c_sex
+Number of permutations: 200
+Model:                  f_rsfa ~ age + c_sex
+Number of permutations: 200
+Number of permutations: 200
+Number of permutations: 200
+Model:                  f_rsfa ~ age + c_sex
+Model:                  f_rsfa ~ age + c_sex
+Model:                  f_rsfa ~ age + c_sex
+Number of permutations: 200
+Number of permutations: 200
+Number of permutations: 200
+Model:                  f_rsfa ~ age + c_sex
+Model:                  f_rsfa ~ age + c_sex
+Model:                  f_rsfa ~ age + c_sex
+Number of permutations: 200
+Number of permutations: 200
+Number of permutations: 200
+Model:                  f_rsfa ~ age + c_sex
+Model:                  f_rsfa ~ age + c_sex
+Model:                  f_rsfa ~ age + c_sex
+Number of permutations: 200
+Number of permutations: 200
+Number of permutations: 200
+Model:                  f_rsfa ~ age + c_sex
+Model:                  f_rsfa ~ age + c_sex
+Model:                  f_rsfa ~ age + c_sex
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+ 
+ 
+To get started, type doc.
+To get started, type doc.
+For product information, visit www.mathworks.com.
+For product information, visit www.mathworks.com.
+ 
+ 
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+ 
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+ 
+ 
+To get started, type doc.
+To get started, type doc.
+To get started, type doc.
+For product information, visit www.mathworks.com.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+   200
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+   199
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+ 
+ 
+To get started, type doc.
+To get started, type doc.
+For product information, visit www.mathworks.com.
+For product information, visit www.mathworks.com.
+ 
+ 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+ 
+Number of permutations: 200
+Number of permutations: 200
+Model:                  f_rsfa ~ age + c_sex
+Model:                  f_rsfa ~ age + c_sex
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+   198
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+   197
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+   195
+
+   196
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+num_perm =
+
+   200
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+specific_seed =
+
+       12345
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+   194
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+ 
+ 
+ 
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+   183
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+   182
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+   181
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+   193
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+   192
+
+   190
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+num_perm =
+
+   200
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+specific_seed =
+
+       12345
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+   191
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 200
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 199
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 198
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 197
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 194
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 195
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 196
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 183
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 182
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 181
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 193
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 190
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 192
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 191
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+ 
+ 
+ 
+To get started, type doc.
+To get started, type doc.
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+For product information, visit www.mathworks.com.
+ 
+ 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+ 
+ 
+ 
+To get started, type doc.
+To get started, type doc.
+To get started, type doc.
+For product information, visit www.mathworks.com.
+For product information, visit www.mathworks.com.
+ 
+ 
+For product information, visit www.mathworks.com.
+ 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+   189
+
+   187
+
+   188
+
+
+num_perm =
+
+   200
+
+
+num_perm =
+
+   200
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+specific_seed =
+
+       12345
+
+
+specific_seed =
+
+       12345
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+ 
+ 
+ 
+To get started, type doc.
+To get started, type doc.
+For product information, visit www.mathworks.com.
+For product information, visit www.mathworks.com.
+ 
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+   184
+
+   186
+
+   185
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+
+num_perm =
+
+   200
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+specific_seed =
+
+       12345
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 187
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 188
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 189
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+   178
+
+   179
+
+   180
+
+
+num_perm =
+
+   200
+
+
+num_perm =
+
+   200
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+specific_seed =
+
+       12345
+
+
+specific_seed =
+
+       12345
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 180
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 179
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 178
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 184
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 186
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 185
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2019 The MathWorks, Inc.
+                  R2019a (9.6.0.1072779) 64-bit (glnxa64)
+                               March 8, 2019
+
+ 
+ 
+To get started, type doc.
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function iscolumn has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function ismatrix has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isrow has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function narginchk has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isequaln has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function contains has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function endsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function newline has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function startsWith has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfile has the same name as a MATLAB builtin. We suggest you
+rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+[Warning: Function isfolder has the same name as a MATLAB builtin. We suggest
+you rename the function to avoid a potential name conflict.] 
+[> In path (line 109)
+  In addpath (line 86)] 
+   176
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+   177
+
+
+num_perm =
+
+   200
+
+
+specific_seed =
+
+       12345
+
+
+Model =
+
+    'f_rsfa ~ age + c_sex'
+
+
+f_mask =
+
+    '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning:
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2010b"
+not found in path.] 
+[> In rmpath (line 71)
+  In isrow (line 35)
+  In rmfield (line 34)
+  In table/getPropertyNamesList (line 448)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2016b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2017b"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: The DATETIME data was created using format 'MM/dd/uuuu HH:mm' but also
+matched 'dd/MM/uuuu HH:mm'.
+To avoid ambiguity, use a format character vector. e.g. '%{MM/dd/uuuu HH:mm}D'] 
+[> In table/readTextFile>textscanReadData (line 562)
+  In table/readTextFile (line 233)
+  In table.readFromFile (line 44)
+  In readtable (line 216)
+  In vba_run_slurm (line 71)] 
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 177
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Removing
+"/rds/user/kat35/hpc-work/projects/external/mat/spm12_7771/external/fieldtrip/compat/matlablt2012a"
+from your path.
+See
+http://www.fieldtriptoolbox.org/faq/should_i_add_fieldtrip_with_all_subdirectories_to_my_matlab_path/] 
+
+cfg = 
+
+  struct with fields:
+
+             model: 'f_rsfa ~ age + c_sex'
+           rootDir: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/'
+            f_mask: '/rds/project/rds-tbdABxTZvic/users/kat35/vba_test/data/mask.nii'
+     doCommonality: 0
+           numPerm: 200
+    whichRandOrder: 176
+      specificSeed: 12345
+           doSlurm: 1
+
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 
+[Warning: Directory already exists.] 
+[> In vba_run (line 261)
+  In vba_run_slurm (line 89)] 

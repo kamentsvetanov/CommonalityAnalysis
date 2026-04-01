@@ -1,4 +1,4 @@
-function [cfg] = ca_vba_tfce_threshold(cfg)
+function [cfg] = vba_tfce_threshold(cfg)
 % Apply TFCE thresholding using matlab_tfce_transform on output from
 % voxel-based analysis with permutations
 % https://github.com/markallenthornton/MatlabTFCE
@@ -27,14 +27,22 @@ try Ns          = tfce.Ns;         catch Ns = size(cfg.tbl,1); fprintf('Selectin
 try Np          = tfce.Np;         catch Np = size(cfg.tbl,2)-1; fprintf('Selecting number predictors based on variables in tbl.\n'); end % Number of predictors
 try path2data   = tfce.path2data;  catch error('Specify path to permutations.\n'); end
 try typeStats   = tfce.typeStats;  catch error('Specify folder prefix, based on statistic type. [tval | rval | bval].\n'); end % This is the pattern used to select directories, e.g. bVal, tVal glmTCA
-
-try showIntercept = tfce.showIntercept; catch showIntercept = 0; end % Whether to show results for (Intercept). Default = 0, no 
+try doRunInSerial = tfce.doRunInSerial; catch  doRunInSerial = 0; end
+try showIntercept = tfce.showIntercept; catch showIntercept  = 0; end % Whether to show results for (Intercept). Default = 0, no 
 
 nameCoefficients    = dir(fullfile(path2data,[typeStats '*']));
 nameCoefficients    = nameCoefficients([nameCoefficients.isdir]);
 nameCoefficients    = {nameCoefficients.name}';
 numCoeff            = numel(nameCoefficients);
 df                  = Ns - Np; % Degrees of freedom
+
+
+% Set parforArg to inf (Default), assuming CA is run in matlab with parfor.
+% Otherwise set to 0 (see example with SLURM implementation below)
+parforArg = Inf;
+if doRunInSerial % Flag Paraller processing
+    parforArg = 0;
+end
 
 % -------------------------------------------------
 % Exclude the Intercept, as it's rarely of interest
@@ -51,7 +59,7 @@ end
 for iCoeff = 1:numel(nameCoefficients)
     
     namecoeff   = nameCoefficients{iCoeff};
-    fname       = ca_rdir(fullfile(path2data,namecoeff,'results_null_*.nii')); fname = {fname.name}';
+    fname       = vba_rdir(fullfile(path2data,namecoeff,'results_null_*.nii')); fname = {fname.name}';
     nperm       = size(fname,1);
 
     % Get t-stats for observed data (1st image)
@@ -59,22 +67,22 @@ for iCoeff = 1:numel(nameCoefficients)
     Yreal = spm_read_vols(V);
     Ypos = Yreal;Ypos(Yreal<0)=0;
     Yneg = Yreal;Yneg(Yreal>0)=0;
-    [trealPos]  = ca_matlab_tfce_transform(Ypos,H,E,C,dh,th);
-    [trealNeg]  = ca_matlab_tfce_transform(abs(Yneg),H,E,C,dh,th);
+    [trealPos]  = vba_matlab_tfce_transform(Ypos,H,E,C,dh,th);
+    [trealNeg]  = vba_matlab_tfce_transform(abs(Yneg),H,E,C,dh,th);
     treal       = trealPos-trealNeg;    
     
     % cycle through permutations
     nvox = numel(Yreal);
     exceedancesPos = zeros(size(Yreal));
     exceedancesNeg = zeros(size(Yreal));
-%     parfor(p = 1:nperm,parworkers)
-    parfor p = 1:nperm
+    parfor(p = 1:nperm,parforArg)
+    % parfor p = 1:nperm
         V           = spm_vol(fname{p});
         Y           = spm_read_vols(V);
         Ypos = Y; Ypos(Y<0)=0;
         Yneg = Y; Yneg(Y>0)=0;
-        [tnullPos]  = ca_matlab_tfce_transform(Ypos,H,E,C,dh,th);
-        [tnullNeg]  = ca_matlab_tfce_transform(abs(Yneg),H,E,C,dh,th);
+        [tnullPos]  = vba_matlab_tfce_transform(Ypos,H,E,C,dh,th);
+        [tnullNeg]  = vba_matlab_tfce_transform(abs(Yneg),H,E,C,dh,th);
         % compare maxima to t-values and increment as appropriate
         curexceeds      = max(tnullPos(:)) >= trealPos;
         exceedancesPos  = exceedancesPos + curexceeds;

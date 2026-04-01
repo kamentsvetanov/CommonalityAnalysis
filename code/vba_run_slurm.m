@@ -1,4 +1,4 @@
-function genfi_cvr_analysis_ca_slurm(f_data, Model,rootDir, f_permMatrix,column_index,f_mask)
+function vba_run_slurm(f_data, Model,rootDir,num_perm, specific_seed,column_index,f_mask)
 % Code showing the use of Voxel-based Analysis (VBA) with fitlm and 
 % commonality function using SLURM. 
 % Call this script with input variables using other environment (e.g. bash)
@@ -59,54 +59,32 @@ function genfi_cvr_analysis_ca_slurm(f_data, Model,rootDir, f_permMatrix,column_
 % -----------------------
 % Load permutation matrix
 % -----------------------
-permMatrix = readmatrix(f_permMatrix);
-permMatrix = permMatrix';
+
+% permMatrix = readmatrix(f_permMatrix);
+% permMatrix = permMatrix';
+disp(column_index);
+num_perm
+specific_seed
+Model
+f_mask
 
 T = readtable(f_data);
-column_index
+
 % -------------------------------------------------------------------------
 % Assemble cfg structure needed to run the analysis for a specific
 % permutation order in predefRandOrder
 % -------------------------------------------------------------------------
 cfg                 = [];
 cfg.model           = Model;
-cfg.rootDir         = rootDir;%'/rds/project/rds-tbdABxTZvic/genfi_cvr/analysis/vba/temp'; 
+cfg.rootDir          = rootDir;%'/rds/project/rds-tbdABxTZvic/genfi_cvr/analysis/vba/temp'; 
 cfg.f_mask          = f_mask;%fullfile(datadir,'mask.nii');
-cfg.doCommonality   = 1;
-cfg.numPerm         = size(permMatrix,2);
-cfg.predefRandOrder = permMatrix;
-cfg.whichRandOrder  = str2num(column_index);
-cfg                 = ca_vba_glm_fitlm(T,cfg);
-
-%%
-
-% f_data  = '/rds/user/kat35/hpc-work/projects/public-code/CommonalityAnalysis/data/rsfa/subject_info.xlsx';
-% Model   = 'f_rsfa ~ Age + c_Sex';
-% rootDir = '/rds/project/rds-tbdABxTZvic/genfi_cvr/analysis/vba/temp';
-% f_permMatrix = '/rds/project/rds-tbdABxTZvic/genfi_cvr/analysis/vba/temp/permutation_matrix.txt';
-% column_index = 1;
-% f_mask = '/rds/user/kat35/hpc-work/projects/public-code/CommonalityAnalysis/data/rsfa/mask.nii';
-
-
-% numSub          = 20;
-% numPerm         = 100;
-% permutedMatrix  = arrayfun(@(x) randperm(numSub), 1:numPerm*1.1, 'UniformOutput', false);
-% permutedMatrix  = cell2mat(permutedMatrix')';
-% % Remove columns that cointain the original order
-% idx = corr(permutedMatrix,[1:numSub]')==1;
-% permutedMatrix(:,idx)=[];
-% permutedMatrix(:,1) = [1:numSub]'; % Set first column to original order
-% % get the right size of pertmuted Matrix
-% randOrder = permutedMatrix(:,1:numPerm);
-
-% T.f_rsfa = regexprep(T.f_rsfa,'/home/kt03/Projects/public-code/CommonalityAnalysis',rootdir);
-% T.f_rsfa = string(T.f_rsfa);
-% T.SubID = string(T.SubID);
-% Ensure CommonalityAnalysis is in Matlab's path
-% rootdir = fileparts(fileparts(which('ca_demo_vba.m')));
-% datadir = [rootdir '/data/rsfa'];
-% T       = readtable(fullfile(datadir,'subject_info.xlsx'));
-% T.f_rsfa = regexprep(T.f_rsfa,'/home/kt03/Projects/public-code/CommonalityAnalysis',rootdir);
-% T.f_rsfa = string(T.f_rsfa);
-% T.SubID = string(T.SubID);
+cfg.doCommonality   = 0;
+% cfg.doRobust        = 1;
+cfg.numPerm         = num_perm;
+% cfg.predefRandOrder = permMatrix;
+cfg.whichRandOrder  = column_index;
+cfg.specificSeed    = specific_seed;
+cfg.doSlurm         = 1;
+cfg
+cfg                 = vba_run(T,cfg);
 
